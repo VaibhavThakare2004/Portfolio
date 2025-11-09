@@ -202,7 +202,7 @@ https://templatemo.com/tm-597-neural-glass
     <h3>Skills</h3>
     <p>
       <strong>Programming Languages:</strong> C, C++, Python, JavaScript<br>
-      <strong>Web Development:</strong> HTML, CSS, React, FastAPI, PostgreSQL, Fast APIs, Responsive Design, Deployment (Render, Vercel, Go dady)<br>
+      <strong>Web Development:</strong> HTML, CSS, React, FastAPI, PostgreSQL, Responsive Design, Deployment (Render, Vercel, GoDaddy)<br>
       <strong>Machine Learning & AI:</strong> TensorFlow, OpenCV, Detectron2, YOLOv5, CNNs, Siamese Networks, Scikit-learn<br>
       <strong>Tools & Platforms:</strong> Docker, Git, GitHub, VS Code, Postman
     </p>
@@ -233,13 +233,13 @@ My focus is on building high-performance, accessible, and data-driven products t
         <h2 class="section-title">PROJECTS</h2>
         <div class="project-carousel-container">
             <div class="project-slide">
-                <div class="project-item" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop');">
+                <div class="project-item" style="background-image: url('images/Kshitij_Foundation.png');">
                     <div class="project-content">
-                        <div class="project-name">E-Commerce Platform</div>
+                        <div class="project-name">NGO-Website</div>
                         <div class="project-des">
-                            Full-stack shopping experience with React, Node.js, and Stripe payment integration.
+                            Developed a fully functional website for Kshitij Foundation.
                         </div>
-                        <a class="seeMore" target="_blank" href="#"><button>View Project</button></a>
+                        <button class="view-project-btn" data-project="project1">View Project</button>
                     </div>
                 </div>
 
@@ -249,7 +249,7 @@ My focus is on building high-performance, accessible, and data-driven products t
                         <div class="project-des">
                             Real-time data visualization with interactive charts and custom reporting features.
                         </div>
-                        <a class="seeMore" target="_blank" href="#"><button>View Project</button></a>
+                        <button class="view-project-btn" data-project="project2">View Project</button>
                     </div>
                 </div>
 
@@ -259,7 +259,7 @@ My focus is on building high-performance, accessible, and data-driven products t
                         <div class="project-des">
                             Comprehensive component library with accessibility and responsive design patterns.
                         </div>
-                        <a class="seeMore" target="_blank" href="#"><button>View Project</button></a>
+                        <button class="view-project-btn" data-project="project3">View Project</button>
                     </div>
                 </div>
 
@@ -269,7 +269,7 @@ My focus is on building high-performance, accessible, and data-driven products t
                         <div class="project-des">
                             Modern social platform with real-time messaging, posts, and user interactions.
                         </div>
-                        <a class="seeMore" target="_blank" href="#"><button>View Project</button></a>
+                        <button class="view-project-btn" data-project="project4">View Project</button>
                     </div>
                 </div>
 
@@ -279,7 +279,7 @@ My focus is on building high-performance, accessible, and data-driven products t
                         <div class="project-des">
                             Headless CMS for creatives to showcase their work with customizable templates.
                         </div>
-                        <a class="seeMore" target="_blank" href="#"><button>View Project</button></a>
+                        <button class="view-project-btn" data-project="project5">View Project</button>
                     </div>
                 </div>
             </div>
@@ -552,6 +552,62 @@ My focus is on building high-performance, accessible, and data-driven products t
             </div>
         </div>
     </footer>
+
+    <!-- Project Details Modal -->
+    <div class="project-modal" id="projectModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h2 id="modalTitle">Project Title</h2>
+                    <div class="modal-tags" id="modalTags"></div>
+                </div>
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="Project Screenshot">
+                </div>
+                <div class="modal-details">
+                    <div class="modal-section">
+                        <h3>Overview</h3>
+                        <p id="modalOverview"></p>
+                    </div>
+                    <div class="modal-section">
+                        <h3>Key Features</h3>
+                        <ul id="modalFeatures"></ul>
+                    </div>
+                    <div class="modal-section">
+                        <h3>Technologies Used</h3>
+                        <div class="tech-stack" id="modalTech"></div>
+                    </div>
+                    <div class="modal-section">
+                        <h3>My Role</h3>
+                        <p id="modalRole"></p>
+                    </div>
+                    <div class="modal-section">
+                        <h3>Challenges & Solutions</h3>
+                        <p id="modalChallenges"></p>
+                    </div>
+                    <div class="modal-actions">
+                        <a id="modalLiveLink" href="#" target="_blank" class="modal-btn primary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                            Live Demo
+                        </a>
+                        <a id="modalGithubLink" href="#" target="_blank" class="modal-btn secondary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <script src="script.js"></script>
 </body>
 </html>

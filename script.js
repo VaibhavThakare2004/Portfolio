@@ -382,3 +382,177 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }
+
+        // ===== PROJECT MODAL =====
+        const projectData = {
+            project1: {
+                title: "NGO Website - Kshitij Foundation",
+                tags: ["Web Development", "Non-Profit", "Responsive Design"],
+                image: "images/Kshitij_Foundation.png",
+                overview: "Developed a comprehensive, fully functional website for Kshitij Foundation, a non-profit organization focused on education and community development. The website serves as a digital platform to showcase their mission, projects, and impact, while facilitating donations and volunteer engagement.",
+                features: [
+                    "Responsive design that works seamlessly across all devices",
+                    "Donation integration with secure payment gateway",
+                    "Volunteer registration and management system",
+                    "Dynamic project showcase with real-time updates",
+                    "Blog section for sharing stories and updates",
+                    "Contact form with email notification system"
+                ],
+                technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "PHP", "MySQL"],
+                role: "Full Stack Developer - Designed and developed the complete website from concept to deployment. Collaborated with the NGO team to understand their needs and translated them into functional features.",
+                challenges: "The main challenge was creating an intuitive donation system that builds trust while keeping the user experience simple. I implemented SSL certificates, secure payment gateways, and transparent tracking to ensure donor confidence.",
+                liveLink: "#",
+                githubLink: "#"
+            },
+            project2: {
+                title: "Analytics Dashboard",
+                tags: ["Data Visualization", "React", "Real-time"],
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+                overview: "Built a powerful analytics dashboard that provides real-time data visualization and insights. The platform helps businesses track key metrics, generate custom reports, and make data-driven decisions with interactive charts and graphs.",
+                features: [
+                    "Real-time data synchronization and updates",
+                    "Interactive charts with drill-down capabilities",
+                    "Custom report builder with export functionality",
+                    "User role management and permissions",
+                    "Dark/Light theme toggle",
+                    "Mobile-responsive data tables"
+                ],
+                technologies: ["React", "D3.js", "Node.js", "Express", "MongoDB", "Socket.io"],
+                role: "Frontend Developer - Led the development of the user interface and data visualization components. Implemented responsive design patterns and optimized performance for large datasets.",
+                challenges: "Handling real-time data updates while maintaining smooth performance was challenging. Solved this by implementing efficient state management with Redux and using WebSockets for live data streaming.",
+                liveLink: "#",
+                githubLink: "#"
+            },
+            project3: {
+                title: "Design System",
+                tags: ["UI/UX", "Component Library", "Accessibility"],
+                image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop",
+                overview: "Created a comprehensive design system and component library to ensure consistency across multiple projects. The system includes reusable UI components, design tokens, and detailed documentation for developers and designers.",
+                features: [
+                    "50+ reusable UI components",
+                    "WCAG 2.1 AA accessibility compliance",
+                    "Responsive design patterns",
+                    "Dark mode support",
+                    "Interactive Storybook documentation",
+                    "Design tokens for colors, typography, and spacing"
+                ],
+                technologies: ["React", "TypeScript", "Styled Components", "Storybook", "Figma"],
+                role: "UI Developer & Designer - Designed the complete component library, created documentation, and ensured accessibility standards were met across all components.",
+                challenges: "Ensuring accessibility while maintaining design flexibility was key. Implemented comprehensive keyboard navigation, screen reader support, and color contrast checks for all components.",
+                liveLink: "#",
+                githubLink: "#"
+            },
+            project4: {
+                title: "Social Media App",
+                tags: ["Full Stack", "Real-time", "Social Network"],
+                image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
+                overview: "Developed a modern social media platform with real-time messaging, post sharing, and user interactions. The app includes features like likes, comments, follows, and a personalized feed algorithm.",
+                features: [
+                    "Real-time messaging and notifications",
+                    "Photo/video upload and sharing",
+                    "Like, comment, and share functionality",
+                    "User profiles and customization",
+                    "Follow/unfollow system",
+                    "Personalized feed algorithm"
+                ],
+                technologies: ["React Native", "Node.js", "Socket.io", "PostgreSQL", "AWS S3", "Redis"],
+                role: "Full Stack Developer - Built both frontend and backend systems, implemented real-time features, and deployed the application to production.",
+                challenges: "Scaling real-time features for multiple concurrent users required careful architecture planning. Implemented Redis for caching and message queuing to handle high traffic efficiently.",
+                liveLink: "#",
+                githubLink: "#"
+            },
+            project5: {
+                title: "Portfolio CMS",
+                tags: ["CMS", "Headless", "API"],
+                image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop",
+                overview: "Built a headless CMS specifically designed for creatives to showcase their work. The platform offers customizable templates, easy content management, and seamless integration with various frontend frameworks.",
+                features: [
+                    "Drag-and-drop content builder",
+                    "Customizable portfolio templates",
+                    "RESTful API for content access",
+                    "Media library with optimization",
+                    "SEO optimization tools",
+                    "Analytics and visitor tracking"
+                ],
+                technologies: ["Next.js", "Strapi", "GraphQL", "PostgreSQL", "Cloudinary", "Vercel"],
+                role: "Full Stack Developer - Architected the CMS structure, developed the admin panel, and created API endpoints for content delivery.",
+                challenges: "Creating a flexible yet user-friendly content management system required balancing customization options with ease of use. Implemented a modular architecture that allows users to build unique layouts without technical knowledge.",
+                liveLink: "#",
+                githubLink: "#"
+            }
+        };
+
+        // Modal functionality
+        const modal = document.getElementById('projectModal');
+        const modalOverlay = document.querySelector('.modal-overlay');
+        const modalClose = document.querySelector('.modal-close');
+        const viewProjectBtns = document.querySelectorAll('.view-project-btn');
+
+        // Open modal
+        viewProjectBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const projectId = btn.getAttribute('data-project');
+                const project = projectData[projectId];
+                
+                if (project) {
+                    // Populate modal content
+                    document.getElementById('modalTitle').textContent = project.title;
+                    document.getElementById('modalImage').src = project.image;
+                    document.getElementById('modalOverview').textContent = project.overview;
+                    document.getElementById('modalRole').textContent = project.role;
+                    document.getElementById('modalChallenges').textContent = project.challenges;
+                    document.getElementById('modalLiveLink').href = project.liveLink;
+                    document.getElementById('modalGithubLink').href = project.githubLink;
+                    
+                    // Tags
+                    const tagsContainer = document.getElementById('modalTags');
+                    tagsContainer.innerHTML = '';
+                    project.tags.forEach(tag => {
+                        const tagEl = document.createElement('span');
+                        tagEl.className = 'modal-tag';
+                        tagEl.textContent = tag;
+                        tagsContainer.appendChild(tagEl);
+                    });
+                    
+                    // Features
+                    const featuresList = document.getElementById('modalFeatures');
+                    featuresList.innerHTML = '';
+                    project.features.forEach(feature => {
+                        const li = document.createElement('li');
+                        li.textContent = feature;
+                        featuresList.appendChild(li);
+                    });
+                    
+                    // Technologies
+                    const techContainer = document.getElementById('modalTech');
+                    techContainer.innerHTML = '';
+                    project.technologies.forEach(tech => {
+                        const techEl = document.createElement('span');
+                        techEl.className = 'tech-item';
+                        techEl.textContent = tech;
+                        techContainer.appendChild(techEl);
+                    });
+                    
+                    // Show modal
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Close modal
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', closeModal);
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
