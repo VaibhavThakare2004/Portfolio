@@ -467,7 +467,7 @@ document.addEventListener('DOMContentLoaded', () => {
 ,project4: {
     title: "QR-Based Asset Ticketing System with Chatbot Integration",
     tags: ["FastAPI", "Automation", "QR Codes", "Chatbot"],
-    image: "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?w=800&h=600&fit=crop",
+    image: "images/Asset_Management.png",
     overview: "Designed and developed a complete asset ticketing and management system that automates IT support workflows using QR codes and chatbot integration. The system enables employees to scan device-specific QR codes to instantly access asset details, raise issues, and track resolution progress through a centralized dashboard.",
     features: [
         "Unique QR code generation for each registered asset",
