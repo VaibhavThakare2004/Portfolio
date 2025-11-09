@@ -1195,6 +1195,8 @@ body[data-theme="calm-friendly"] .neural-background {
     bottom: 25px;
     left: 0;
     right: 0;
+    z-index: 100;
+    pointer-events: none;
 }
 
 .project-button button {
@@ -1209,6 +1211,7 @@ body[data-theme="calm-friendly"] .neural-background {
     backdrop-filter: blur(10px);
     color: #e0a3ff;
     font-size: 1.2rem;
+    pointer-events: all;
 }
 
 .project-button button:hover {
@@ -2299,20 +2302,34 @@ body[data-theme="calm-friendly"] .neural-background {
     height: 100%;
     z-index: 9999;
     animation: fadeIn 0.3s ease;
+    overflow: hidden;
 }
 
 .project-modal.active {
-    display: block;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* Prevent body scroll when modal is open */
+body.modal-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
 
 .modal-overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(10px);
+    z-index: -1;
 }
 
 .modal-content {
@@ -2325,9 +2342,48 @@ body[data-theme="calm-friendly"] .neural-background {
     backdrop-filter: blur(30px);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
-    overflow-y: auto;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     animation: slideUp 0.4s ease;
+    overflow-y: scroll !important;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Scrollbar for modal content */
+.modal-content::-webkit-scrollbar {
+    width: 14px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0 10px 10px 0;
+    margin: 10px 0;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    min-height: 50px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+.modal-content::-webkit-scrollbar-thumb:active {
+    background: var(--primary-color);
+}
+
+/* Firefox Scrollbar for modal content */
+.modal-content {
+    scrollbar-width: auto;
+    scrollbar-color: var(--primary-color) rgba(255, 255, 255, 0.1);
 }
 
 @keyframes fadeIn {
@@ -2374,6 +2430,8 @@ body[data-theme="calm-friendly"] .neural-background {
 
 .modal-body {
     padding: 40px;
+    max-height: none;
+    overflow: visible;
 }
 
 .modal-header {

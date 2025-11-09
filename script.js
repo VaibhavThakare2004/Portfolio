@@ -410,94 +410,128 @@ document.addEventListener('DOMContentLoaded', () => {
                 overview: "Developed a comprehensive, fully functional website for Kshitij Foundation, a non-profit organization focused on education and community development. The website serves as a digital platform to showcase their mission, projects, and impact, while facilitating donations and volunteer engagement.",
                 features: [
                     "Responsive design that works seamlessly across all devices",
-                    "Donation integration with secure payment gateway",
-                    "Volunteer registration and management system",
+                
+                    "Volunteer registration system",
                     "Dynamic project showcase with real-time updates",
                     "Blog section for sharing stories and updates",
-                    "Contact form with email notification system"
                 ],
-                technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "PHP", "MySQL"],
+                technologies: ["HTML5", "CSS3", "JavaScript",],
                 role: "Full Stack Developer - Designed and developed the complete website from concept to deployment. Collaborated with the NGO team to understand their needs and translated them into functional features.",
-                challenges: "The main challenge was creating an intuitive donation system that builds trust while keeping the user experience simple. I implemented SSL certificates, secure payment gateways, and transparent tracking to ensure donor confidence.",
-                liveLink: "#",
-                githubLink: "#"
+                challenges: "The main challenge was designing an intuitive platform that fosters trust while maintaining a seamless user experience. I implemented SSL encryption, secure authentication, and transparent system logs to strengthen reliability.",
+                liveLink: "https://www.kshitijfoundation.org/",
+                githubLink: "https://github.com/VaibhavThakare2004/NGO_Muktangan"
             },
             project2: {
-                title: "Analytics Dashboard",
-                tags: ["Data Visualization", "React", "Real-time"],
-                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-                overview: "Built a powerful analytics dashboard that provides real-time data visualization and insights. The platform helps businesses track key metrics, generate custom reports, and make data-driven decisions with interactive charts and graphs.",
-                features: [
-                    "Real-time data synchronization and updates",
-                    "Interactive charts with drill-down capabilities",
-                    "Custom report builder with export functionality",
-                    "User role management and permissions",
-                    "Dark/Light theme toggle",
-                    "Mobile-responsive data tables"
-                ],
-                technologies: ["React", "D3.js", "Node.js", "Express", "MongoDB", "Socket.io"],
-                role: "Frontend Developer - Led the development of the user interface and data visualization components. Implemented responsive design patterns and optimized performance for large datasets.",
-                challenges: "Handling real-time data updates while maintaining smooth performance was challenging. Solved this by implementing efficient state management with Redux and using WebSockets for live data streaming.",
-                liveLink: "#",
-                githubLink: "#"
-            },
+    title: "AI-Powered Stress and Confidence Analyzer",
+    tags: ["Deep Learning", "Emotion Recognition", "Real-time Analysis"],
+    image: "https://images.unsplash.com/photo-1581090464777-28a84814d94e?w=800&h=600&fit=crop",
+    overview: "Developed an intelligent system that analyzes facial expressions and vocal patterns to assess stress and confidence levels in real time. The application combines video and audio processing with deep learning models to provide accurate emotional insights, enhancing self-awareness and communication analysis.",
+    features: [
+        "Real-time face and emotion detection using MediaPipe and CNN models",
+        "Voice-based confidence classification using LSTM",
+        "Automatic video and audio synchronization with FFmpeg",
+        "CSV report generation with time-based emotion data",
+        "Interactive dashboard for result visualization",
+        "Secure FastAPI backend with modular ML integration"
+    ],
+    technologies: [
+        "Python", "FastAPI", "TensorFlow / Keras", "OpenCV", "Librosa", "Mediapipe", "Joblib", "Pandas"
+    ],
+    role: "Full-Stack ML Developer — Implemented both facial emotion recognition and audio confidence models, integrated them into a unified FastAPI system, and optimized real-time processing performance.",
+    challenges: "The main challenge was achieving real-time synchronization and emotion consistency across video and audio streams. Solved this by implementing parallel processing pipelines, efficient frame sampling, and audio segmentation with adaptive interval matching.",
+    liveLink: "https://www.ijraset.com/research-paper/ai-powered-interview-stress-and-confidence-analyzer ",
+    githubLink: "https://github.com/VaibhavThakare2004/Stress-ConfidenceAnalyser"
+}
+,
             project3: {
-                title: "Design System",
-                tags: ["UI/UX", "Component Library", "Accessibility"],
-                image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop",
-                overview: "Created a comprehensive design system and component library to ensure consistency across multiple projects. The system includes reusable UI components, design tokens, and detailed documentation for developers and designers.",
-                features: [
-                    "50+ reusable UI components",
-                    "WCAG 2.1 AA accessibility compliance",
-                    "Responsive design patterns",
-                    "Dark mode support",
-                    "Interactive Storybook documentation",
-                    "Design tokens for colors, typography, and spacing"
-                ],
-                technologies: ["React", "TypeScript", "Styled Components", "Storybook", "Figma"],
-                role: "UI Developer & Designer - Designed the complete component library, created documentation, and ensured accessibility standards were met across all components.",
-                challenges: "Ensuring accessibility while maintaining design flexibility was key. Implemented comprehensive keyboard navigation, screen reader support, and color contrast checks for all components.",
-                liveLink: "#",
-                githubLink: "#"
-            },
-            project4: {
-                title: "Social Media App",
-                tags: ["Full Stack", "Real-time", "Social Network"],
-                image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
-                overview: "Developed a modern social media platform with real-time messaging, post sharing, and user interactions. The app includes features like likes, comments, follows, and a personalized feed algorithm.",
-                features: [
-                    "Real-time messaging and notifications",
-                    "Photo/video upload and sharing",
-                    "Like, comment, and share functionality",
-                    "User profiles and customization",
-                    "Follow/unfollow system",
-                    "Personalized feed algorithm"
-                ],
-                technologies: ["React Native", "Node.js", "Socket.io", "PostgreSQL", "AWS S3", "Redis"],
-                role: "Full Stack Developer - Built both frontend and backend systems, implemented real-time features, and deployed the application to production.",
-                challenges: "Scaling real-time features for multiple concurrent users required careful architecture planning. Implemented Redis for caching and message queuing to handle high traffic efficiently.",
-                liveLink: "#",
-                githubLink: "#"
-            },
+    title: "Refrigerator Door Detection & Verification using CNNs and Siamese Networks",
+    tags: ["Computer Vision", "Deep Learning", "Object Detection"],
+    image: "images/Refrigerator_door.png",
+    overview: "Developed a deep learning-based image detection and verification system to automatically identify and validate refrigerator doors in large-scale retail environments. The project combines Detectron2 for object detection and Siamese Networks for visual similarity verification, ensuring that each door matches its assigned reference model accurately.",
+    features: [
+        "Custom-trained Detectron2 model for refrigerator door detection",
+        "Siamese Neural Network for image similarity verification",
+        "COCO-style dataset preparation and augmentation pipeline",
+        "Web-scraped dataset with automated labeling and preprocessing",
+        "End-to-end modular system for detection, verification, and logging",
+        "High-accuracy visual matching between reference and detected doors"
+    ],
+    technologies: [
+        "Python", "PyTorch", "Detectron2", "OpenCV", "Siamese Networks", "NumPy", "Pandas", "Matplotlib"
+    ],
+    role: "Computer Vision Engineer — Led the model design and training pipeline, optimized feature extraction using CNN backbones, and integrated Siamese similarity verification for robust matching.",
+    challenges: "The main challenge was ensuring accurate door verification under different lighting and perspective variations. Solved this by applying heavy data augmentation, contrast normalization, and fine-tuning Siamese embeddings for feature consistency.",
+    liveLink: "https://www.linkedin.com/posts/vaibhavthakare2004_deeplearning-computervision-detectron2-activity-7352655432462610433-SHng/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEOdx4oB7DfoqdIZiWcJ2huFQ6XGd9WhOS0",
+    githubLink: "https://github.com/VaibhavThakare2004/Refrigerator_Door_Detection_and_Verification"
+}
+,project4: {
+    title: "QR-Based Asset Ticketing System with Chatbot Integration",
+    tags: ["FastAPI", "Automation", "QR Codes", "Chatbot"],
+    image: "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?w=800&h=600&fit=crop",
+    overview: "Designed and developed a complete asset ticketing and management system that automates IT support workflows using QR codes and chatbot integration. The system enables employees to scan device-specific QR codes to instantly access asset details, raise issues, and track resolution progress through a centralized dashboard.",
+    features: [
+        "Unique QR code generation for each registered asset",
+        "Automated ticket creation with real-time database logging",
+        "Olam chatbot integration for conversational issue reporting",
+        "Separate user and admin dashboards with role-based access",
+        "Email notifications for issue creation and updates",
+        "Exportable asset and ticket reports in CSV/Excel formats",
+        "Web-based responsive interface using FastAPI and Jinja2 templates"
+    ],
+    technologies: [
+        "Python", "FastAPI", "PostgreSQL", "HTML/CSS", "Jinja2", "Olam Chatbot", "QR Code Library"
+    ],
+    role: "Full-Stack Developer Intern — Designed the database schema, developed backend APIs, and integrated QR code generation with chatbot automation. Built an intuitive web interface and optimized the admin dashboard for seamless asset tracking.",
+    challenges: "The main challenge was ensuring secure, real-time ticket creation and synchronization across user and admin interfaces. This was solved by implementing API-based event triggers, structured role management, and efficient data caching to maintain consistency.",
+    liveLink: "https://www.linkedin.com/posts/vaibhavthakare2004_fastapi-pythondevelopment-internship-activity-7363616994018889729-UwAR/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEOdx4oB7DfoqdIZiWcJ2huFQ6XGd9WhOS0",
+    githubLink: "https://github.com/VaibhavThakare2004/Asset-Management"
+}
+,
             project5: {
-                title: "Portfolio CMS",
-                tags: ["CMS", "Headless", "API"],
-                image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop",
-                overview: "Built a headless CMS specifically designed for creatives to showcase their work. The platform offers customizable templates, easy content management, and seamless integration with various frontend frameworks.",
-                features: [
-                    "Drag-and-drop content builder",
-                    "Customizable portfolio templates",
-                    "RESTful API for content access",
-                    "Media library with optimization",
-                    "SEO optimization tools",
-                    "Analytics and visitor tracking"
-                ],
-                technologies: ["Next.js", "Strapi", "GraphQL", "PostgreSQL", "Cloudinary", "Vercel"],
-                role: "Full Stack Developer - Architected the CMS structure, developed the admin panel, and created API endpoints for content delivery.",
-                challenges: "Creating a flexible yet user-friendly content management system required balancing customization options with ease of use. Implemented a modular architecture that allows users to build unique layouts without technical knowledge.",
-                liveLink: "#",
-                githubLink: "#"
-            }
+    title: "Real-Time Weather Prediction System using FastAPI",
+    tags: ["Machine Learning", "FastAPI", "Time-Series Forecasting"],
+    image: "images/Wheather_prediction.png",
+    overview: "Built a real-time weather prediction API that integrates with the OpenWeather API to fetch live, location- and time-specific meteorological data. The system processes this data using multiple machine learning and deep learning models to generate precise, dynamic weather forecasts for any global coordinate.",
+    features: [
+        "Integration with OpenWeather API for real-time data collection",
+        "XGBoost model trained on 80,000+ weather records for short-term accuracy",
+        "Random Forest for stable, cross-condition predictions",
+        "LSTM deep learning model for long-term temporal forecasting",
+        "RESTful API endpoints developed with FastAPI",
+        "Support for latitude, longitude, and timestamp-based predictions",
+        "Deployed on Render for real-time scalability"
+    ],
+    technologies: [
+        "Python", "FastAPI", "XGBoost", "Random Forest", "LSTM", "TensorFlow", "scikit-learn", "OpenWeather API", "uvicorn"
+    ],
+    role: "Machine Learning Engineer — Designed and implemented an end-to-end weather forecasting pipeline, integrating real-time data ingestion with hybrid ML and DL models. Built a modular FastAPI backend for live predictions and model management.",
+    challenges: "The biggest challenge was ensuring accurate predictions from dynamic, live data streams. Solved this by introducing data normalization, hybrid model stacking, and retraining pipelines to adapt to seasonal and geographical variations.",
+    liveLink: "https://weather-predictor-six.vercel.app/",
+    githubLink: "https://github.com/VaibhavThakare2004/Weather_predictor"
+},
+project6: {
+    title: "Muktangan Foundation",
+    tags: ["Healthcare AI", "FastAPI", "Machine Learning", "Cloud Deployment"],
+    image: "images/Muktangan_Foundation.png",
+    overview: "Developed a cloud-based medical platform for the Muktangan Foundation that automates Thalassemia detection using complete blood count (CBC) reports. The system leverages FastAPI, ML models, and Google Cloud to deliver accurate diagnostic results and send instant reports to users via email.",
+    features: [
+        "AI-powered Thalassemia detection using CBC parameters",
+        "FastAPI-based backend integrated with trained ML models",
+        "Deployed on Google Cloud Platform (GCP) for scalability and uptime",
+        "Secure report upload and instant result generation",
+        "Automated email notifications with attached diagnostic reports",
+        "Doctor and admin dashboard for reviewing and managing patient data"
+    ],
+    technologies: [
+        "Python", "FastAPI", "Google Cloud Platform (GCP)", "scikit-learn", "Pandas", "SMTP", "HTML/CSS", "Jinja2"
+    ],
+    role: "Full-Stack Developer & ML Engineer — Built and trained the ML model for Thalassemia prediction, developed a FastAPI backend for secure report analysis, integrated automated email notifications, and deployed the system on Google Cloud.",
+    challenges: "The key challenge was managing medical data securely and ensuring reliable email delivery at scale. Solved this by implementing encrypted file handling, server-side validation, and using authenticated SMTP-based mail automation integrated with the FastAPI backend.",
+    liveLink: "https://muktanganfoundation.org/",
+    githubLink: "https://github.com/VaibhavThakare2004/NGO_Muktangan"
+},
+
+
         };
 
         // Modal functionality
@@ -520,8 +554,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.getElementById('modalOverview').textContent = project.overview;
                     document.getElementById('modalRole').textContent = project.role;
                     document.getElementById('modalChallenges').textContent = project.challenges;
-                    document.getElementById('modalLiveLink').href = project.liveLink;
-                    document.getElementById('modalGithubLink').href = project.githubLink;
+                    
+                    // Set links with onclick to ensure they work
+                    const liveLink = document.getElementById('modalLiveLink');
+                    const githubLink = document.getElementById('modalGithubLink');
+                    
+                    liveLink.onclick = function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        window.open(project.liveLink, '_blank');
+                    };
+                    
+                    githubLink.onclick = function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        window.open(project.githubLink, '_blank');
+                    };
                     
                     // Tags
                     const tagsContainer = document.getElementById('modalTags');
@@ -554,19 +602,53 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     // Show modal
                     modal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
+                    
+                    // Save current scroll position before locking body
+                    scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+                    document.body.style.top = `-${scrollPosition}px`;
+                    document.body.classList.add('modal-open');
+                    
+                    // Scroll modal content to top
+                    const modalContent = document.querySelector('.modal-content');
+                    if (modalContent) {
+                        modalContent.scrollTop = 0;
+                    }
+                    
+                    // Stop Lenis smooth scroll when modal is open
+                    if (window.lenis) {
+                        window.lenis.stop();
+                    }
                 }
             });
         });
 
+        // Variable to store scroll position
+        let scrollPosition = 0;
+
         // Close modal
         function closeModal() {
             modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
+            document.body.classList.remove('modal-open');
+            document.body.style.top = '';
+            
+            // Restore scroll position
+            window.scrollTo(0, scrollPosition);
+            
+            // Restart Lenis smooth scroll
+            if (window.lenis) {
+                window.lenis.start();
+            }
         }
 
         modalClose.addEventListener('click', closeModal);
-        modalOverlay.addEventListener('click', closeModal);
+        
+        // Close modal only when clicking directly on overlay background
+        modal.addEventListener('click', (e) => {
+            // Close only if clicking on the modal itself (not its children)
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
 
         // Close on Escape key
         document.addEventListener('keydown', (e) => {
@@ -574,3 +656,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 closeModal();
             }
         });
+
+        // Prevent body scroll when modal is open but allow modal scroll
+        if (modal) {
+            modal.addEventListener('wheel', (e) => {
+                e.stopPropagation();
+            }, { passive: true });
+            
+            modal.addEventListener('touchmove', (e) => {
+                e.stopPropagation();
+            }, { passive: true });
+        }
