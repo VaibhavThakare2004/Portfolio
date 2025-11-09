@@ -232,22 +232,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // ===== TEXT ANIMATION WITH GSAP =====
-        // Wait for GSAP and Lenis to load
-        window.addEventListener('load', () => {
+        // Wait for GSAP and Lenis to load with retry mechanism
+        function initializeSmoothScroll() {
+            // Check if libraries are loaded
             if (typeof gsap === 'undefined' || typeof Lenis === 'undefined') {
-                console.warn('GSAP or Lenis not loaded');
+                console.warn('GSAP or Lenis not loaded yet, retrying...');
+                setTimeout(initializeSmoothScroll, 100);
                 return;
             }
+
+            console.log('Initializing Lenis smooth scroll...');
 
             // Initialize Lenis Smooth Scroll
             const lenis = new Lenis({
                 smooth: true,
                 multiplier: 1,
-                easing: (t) => t * (2 - t),
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
                 smoothTouch: false,
-                lerp: 0.05,
+                touchMultiplier: 2,
+                infinite: false,
+                lerp: 0.1,
                 duration: 1.2
             });
+
+            // Make lenis available globally for debugging
+            window.lenis = lenis;
 
             function raf(time) {
                 lenis.raf(time);
@@ -268,6 +277,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             gsap.ticker.lagSmoothing(0);
+
+            console.log('Lenis smooth scroll initialized successfully!');
 
             // Main Text Color Animation (without char splitting to avoid breaking HTML)
             const mainTextElement = document.querySelector('.text-animation__text');
@@ -361,7 +372,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 );
             }
-        });
+        }
+
+        // Start initialization when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeSmoothScroll);
+        } else {
+            initializeSmoothScroll();
+        }
 
         // ===== PROJECT CAROUSEL =====
         const projectNext = document.querySelector(".project-next");
