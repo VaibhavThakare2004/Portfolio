@@ -431,6 +431,14 @@ body[data-theme="calm-friendly"] .neural-background {
      font-weight: 500;
      letter-spacing: 0.02em;
 }
+ .nav-links a:hover {
+     color: var(--primary-color);
+     background: rgba(224, 163, 255, 0.1);
+     box-shadow: 0 0 15px rgba(224, 163, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+     border: 1px solid rgba(224, 163, 255, 0.3);
+     transform: translateY(-2px);
+     text-shadow: 0 0 8px rgba(224, 163, 255, 0.5);
+}
  .nav-links a.active {
      color: var(--primary-color);
      background: linear-gradient(135deg, var(--glass-bg), var(--glass-border));
@@ -465,6 +473,15 @@ body[data-theme="calm-friendly"] .neural-background {
 
 .nav-links .dropdown-toggle {
     cursor: pointer;
+}
+
+.nav-links .dropdown-toggle:hover {
+    color: var(--primary-color);
+    background: rgba(224, 163, 255, 0.1);
+    box-shadow: 0 0 15px rgba(224, 163, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(224, 163, 255, 0.3);
+    transform: translateY(-2px);
+    text-shadow: 0 0 8px rgba(224, 163, 255, 0.5);
 }
 
 .nav-links .dropdown-menu {
@@ -1093,10 +1110,10 @@ body[data-theme="calm-friendly"] .neural-background {
      background: linear-gradient(45deg, rgba(224, 163, 255, 0.2), rgba(255, 105, 180, 0.2));
 }
  .feature-row:nth-child(1) .feature-visual {
-     background-image: url('images/templatemo-neural-01.jpg');
+     background-image: url('images/front1.png');
 }
  .feature-row:nth-child(2) .feature-visual {
-     background-image: url('images/templatemo-neural-02.jpg');
+     background-image: url('images/front2.png');
 }
  .feature-row:nth-child(3) .feature-visual {
      background-image: url('images/templatemo-neural-03.jpg');
