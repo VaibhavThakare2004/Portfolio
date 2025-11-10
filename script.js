@@ -59,8 +59,42 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileNav.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking on links
-        document.querySelectorAll('.mobile-nav a').forEach(link => {
+        // Mobile dropdown toggle - handle multiple dropdowns
+        const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+        
+        mobileDropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                const parent = toggle.closest('.mobile-dropdown');
+                
+                // Close other dropdowns
+                document.querySelectorAll('.mobile-dropdown').forEach(dropdown => {
+                    if (dropdown !== parent) {
+                        dropdown.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current dropdown
+                parent.classList.toggle('active');
+            });
+        });
+
+        // Handle dropdown project navigation - open modal directly
+        document.querySelectorAll('.dropdown-item[data-project], .mobile-dropdown-item[data-project]').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const projectId = item.getAttribute('data-project');
+                
+                // Trigger modal open by simulating click on corresponding view button
+                const viewBtn = document.querySelector(`.view-project-btn[data-project="${projectId}"]`);
+                if (viewBtn) {
+                    viewBtn.click();
+                }
+            });
+        });
+
+        // Close mobile menu when clicking on links (except dropdown toggle)
+        document.querySelectorAll('.mobile-nav a:not(.mobile-dropdown-toggle)').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenuToggle.classList.remove('active');
                 mobileNav.classList.remove('active');
@@ -667,3 +701,68 @@ project6: {
                 e.stopPropagation();
             }, { passive: true });
         }
+
+        // ===== Modern Contact Section Enhancements =====
+        (function () {
+            const contactSection = document.getElementById('contact');
+            if (!contactSection) return;
+
+            // Inject floating orbs once
+            const orbHost = document.getElementById('contactParticles');
+            if (orbHost && orbHost.childElementCount === 0) {
+                const orbs = [
+                    { s: 180, x: '8%',  y: '78%', d: 16 },
+                    { s: 140, x: '78%', y: '18%', d: 14 },
+                    { s: 120, x: '85%', y: '72%', d: 18 },
+                    { s: 160, x: '22%', y: '22%', d: 15 },
+                    { s: 100, x: '55%', y: '85%', d: 13 }
+                ];
+                orbs.forEach((o, i) => {
+                    const el = document.createElement('div');
+                    el.className = 'contact-orb';
+                    el.style.setProperty('--s', o.s + 'px');
+                    el.style.setProperty('--d', o.d + 's');
+                    el.style.left = o.x; el.style.top = o.y;
+                    el.style.animationDelay = (i * 0.7) + 's';
+                    orbHost.appendChild(el);
+                });
+            }
+
+            // Typing tagline once when visible
+            const tagline = document.getElementById('contactTagline');
+            const text = "Let's bring ideas to life together 💡";
+            let typed = false;
+            const type = () => {
+                if (!tagline) return;
+                tagline.textContent = '';
+                let i = 0;
+                const timer = setInterval(() => {
+                    tagline.textContent += text.charAt(i++);
+                    if (i >= text.length) clearInterval(timer);
+                }, 45);
+            };
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting && !typed) { typed = true; type(); }
+                });
+            }, { threshold: 0.4 });
+            io.observe(contactSection);
+
+            // Toast on submit (works alongside existing button animation)
+            const toast = document.getElementById('contactToast');
+            const btn = document.querySelector('#contact .submit-btn');
+            if (toast && btn) {
+                const showToast = (msg) => {
+                    toast.textContent = msg;
+                    toast.classList.add('show');
+                    toast.setAttribute('aria-hidden', 'false');
+                    setTimeout(() => {
+                        toast.classList.remove('show');
+                        toast.setAttribute('aria-hidden', 'true');
+                    }, 2600);
+                };
+                btn.addEventListener('click', () => {
+                    setTimeout(() => showToast("Message sent! I'll get back to you soon."), 1600);
+                });
+            }
+        })();
