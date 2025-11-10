@@ -12,21 +12,88 @@ https://templatemo.com/tm-597-neural-glass
 document.addEventListener('DOMContentLoaded', () => {
     const themeButtons = document.querySelectorAll('.theme-btn');
     const body = document.body;
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeSwitcher = document.getElementById('themeSwitcher');
+    const themeWelcomeOverlay = document.getElementById('themeWelcomeOverlay');
+    const themeCards = document.querySelectorAll('.theme-card');
     
-    // Load saved theme from localStorage
+    // Always show welcome screen on page load
+    themeWelcomeOverlay.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    
     const savedTheme = localStorage.getItem('portfolioTheme') || 'original';
-    if (savedTheme !== 'original') {
-        body.setAttribute('data-theme', savedTheme);
-    }
+    const skipThemeBtn = document.getElementById('skipThemeBtn');
     
-    // Update active button
+    // Function to hide welcome screen
+    const hideWelcomeScreen = () => {
+        themeWelcomeOverlay.classList.add('hidden');
+        document.body.style.overflow = '';
+    };
+    
+    // Skip button click
+    skipThemeBtn.addEventListener('click', () => {
+        // Use default theme (original)
+        body.removeAttribute('data-theme');
+        localStorage.setItem('portfolioTheme', 'original');
+        
+        // Update active button in sidebar
+        themeButtons.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.theme === 'original') {
+                btn.classList.add('active');
+            }
+        });
+        
+        hideWelcomeScreen();
+    });
+    
+    // Welcome screen theme card click
+    themeCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const theme = card.dataset.theme;
+            
+            // Apply theme
+            if (theme === 'original') {
+                body.removeAttribute('data-theme');
+            } else {
+                body.setAttribute('data-theme', theme);
+            }
+            
+            // Save theme
+            localStorage.setItem('portfolioTheme', theme);
+            
+            // Update active button in sidebar
+            themeButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.theme === theme) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            hideWelcomeScreen();
+        });
+    });
+    
+    // Toggle theme switcher visibility
+    themeToggleBtn.addEventListener('click', () => {
+        themeSwitcher.classList.toggle('active');
+    });
+    
+    // Close theme switcher when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!themeToggleBtn.contains(e.target) && !themeSwitcher.contains(e.target)) {
+            themeSwitcher.classList.remove('active');
+        }
+    });
+    
+    // Update active button based on saved theme
     themeButtons.forEach(btn => {
         if (btn.dataset.theme === savedTheme) {
             btn.classList.add('active');
         }
     });
     
-    // Theme switch functionality
+    // Theme switch functionality (sidebar)
     themeButtons.forEach(button => {
         button.addEventListener('click', () => {
             const theme = button.dataset.theme;
@@ -46,6 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Save theme to localStorage
             localStorage.setItem('portfolioTheme', theme);
+            
+            // Close theme switcher after selection
+            themeSwitcher.classList.remove('active');
         });
     });
 });

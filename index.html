@@ -25,8 +25,66 @@ https://templatemo.com/tm-597-neural-glass
     </style>
 </head>
 <body>
+    <!-- Theme Selection Welcome Screen -->
+    <div class="theme-welcome-overlay" id="themeWelcomeOverlay">
+        <div class="theme-welcome-content">
+            <div class="welcome-header">
+                <h1 class="welcome-title">Welcome to My Portfolio</h1>
+                <p class="welcome-subtitle">Choose your preferred theme to get started</p>
+                <button class="skip-theme-btn" id="skipThemeBtn">Skip & Use Default</button>
+            </div>
+            
+            <div class="theme-grid">
+                <div class="theme-card" data-theme="original">
+                    <div class="theme-preview original-preview"></div>
+                    <h3 class="theme-card-title">Original</h3>
+                    <p class="theme-card-desc">Pink & Purple Glassmorphism</p>
+                </div>
+                
+                <div class="theme-card" data-theme="tech-social">
+                    <div class="theme-preview tech-social-preview"></div>
+                    <h3 class="theme-card-title">Tech + Social</h3>
+                    <p class="theme-card-desc">Blue & Green Professional</p>
+                </div>
+                
+                <div class="theme-card" data-theme="modern-minimal">
+                    <div class="theme-preview modern-minimal-preview"></div>
+                    <h3 class="theme-card-title">Modern Minimal</h3>
+                    <p class="theme-card-desc">Clean Blue & Yellow</p>
+                </div>
+                
+                <div class="theme-card" data-theme="creative-energy">
+                    <div class="theme-preview creative-energy-preview"></div>
+                    <h3 class="theme-card-title">Creative Energy</h3>
+                    <p class="theme-card-desc">Orange & Dark Blue</p>
+                </div>
+                
+                <div class="theme-card" data-theme="dark-pro">
+                    <div class="theme-preview dark-pro-preview"></div>
+                    <h3 class="theme-card-title">Dark Pro</h3>
+                    <p class="theme-card-desc">GitHub Dark Theme</p>
+                </div>
+                
+                <div class="theme-card" data-theme="calm-friendly">
+                    <div class="theme-preview calm-friendly-preview"></div>
+                    <h3 class="theme-card-title">Calm Friendly</h3>
+                    <p class="theme-card-desc">Purple & Teal Harmony</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Change Theme">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M12 1v6m0 6v6m5-11l-2 2m-6 6l-2 2m11-5h-6m-6 0H1m11-5l2 2m-6 6l2 2"></path>
+        </svg>
+        <span class="theme-toggle-text">Themes</span>
+    </button>
+
     <!-- Theme Switcher -->
-    <div class="theme-switcher glass">
+    <div class="theme-switcher glass" id="themeSwitcher">
         <button class="theme-btn active" data-theme="original">Original</button>
         <button class="theme-btn" data-theme="tech-social">Tech + Social</button>
         <button class="theme-btn" data-theme="modern-minimal">Modern Minimal</button>
