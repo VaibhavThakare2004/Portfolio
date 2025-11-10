@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Vaibhav — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    
+    <!-- GSAP and Lenis for scroll animations -->
+    <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.2.1/dist/lenis.min.js"></script>
+<!--
+
+TemplateMo 597 Neural Glass
+
+https://templatemo.com/tm-597-neural-glass
+
+-->
+    <style>
+       
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Change Theme">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M12 1v6m0 6v6m5-11l-2 2m-6 6l-2 2m11-5h-6m-6 0H1m11-5l2 2m-6 6l2 2"></path>
+        </svg>
+        <span class="theme-toggle-text">Themes</span>
+    </button>
+
+    <!-- Theme Switcher -->
+    <div class="theme-switcher glass" id="themeSwitcher">
+        <button class="theme-btn active" data-theme="original">Aurora</button>
+        <button class="theme-btn" data-theme="tech-social">Neon Nexus</button>
+        <button class="theme-btn" data-theme="modern-minimal">Lumen</button>
+        <button class="theme-btn" data-theme="creative-energy">Ignite</button>
+        <button class="theme-btn" data-theme="dark-pro">Obsidian</button>
+        <button class="theme-btn" data-theme="calm-friendly">Aether</button>
+    </div>
+
+    <!-- Epic Neural Background -->
+    <div class="neural-background"></div>
+    
+    <!-- Floating Geometric Shapes -->
+    <div class="geometric-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Neural Network Lines -->
+    <div class="neural-lines">
+        <div class="neural-line"></div>
+        <div class="neural-line"></div>
+        <div class="neural-line"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="glass">
+        <nav>
+            <a href="#home" class="logo">
+                <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#e0a3ff"/>
+                            <stop offset="50%" style="stop-color:#ff69b4"/>
+                            <stop offset="100%" style="stop-color:#9370db"/>
+                        </linearGradient>
+                    </defs>
+                    <circle cx="50" cy="30" r="8" fill="url(#logoGradient)" opacity="0.8">
+                        <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="30" cy="60" r="6" fill="url(#logoGradient)" opacity="0.6">
+                        <animate attributeName="opacity" values="0.6;1;0.6" dur="2.5s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="70" cy="65" r="7" fill="url(#logoGradient)" opacity="0.7">
+                        <animate attributeName="opacity" values="0.7;1;0.7" dur="1.8s" repeatCount="indefinite"/>
+                    </circle>
+                    <line x1="50" y1="30" x2="30" y2="60" stroke="url(#logoGradient)" stroke-width="2" opacity="0.6">
+                        <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/>
+                    </line>
+                    <line x1="50" y1="30" x2="70" y2="65" stroke="url(#logoGradient)" stroke-width="2" opacity="0.6">
+                        <animate attributeName="opacity" values="0.6;1;0.6" dur="2.2s" repeatCount="indefinite"/>
+                    </line>
+                    <line x1="30" y1="60" x2="70" y2="65" stroke="url(#logoGradient)" stroke-width="2" opacity="0.6">
+                        <animate attributeName="opacity" values="0.6;1;0.6" dur="2.8s" repeatCount="indefinite"/>
+                    </line>
+                </svg>
+                Portfolio
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">About</a></li>
+                <li class="dropdown">
+                    <a href="#showcase" class="dropdown-toggle">Projects ▾</a>
+                    <div class="dropdown-menu">
+                        <a href="#showcase" class="dropdown-item" data-project="project1">Kshitij Foundation</a>
+                        <a href="#showcase" class="dropdown-item" data-project="project2">Confidence Analyser</a>
+                        <a href="#showcase" class="dropdown-item" data-project="project3">Refrigerator Door Detection</a>
+                        <a href="#showcase" class="dropdown-item" data-project="project4">Asset Ticketing System</a>
+                        <a href="#showcase" class="dropdown-item" data-project="project5">Weather Prediction</a>
+                        <a href="#showcase" class="dropdown-item" data-project="project6">Muktangan Foundation</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#nonprofit" class="dropdown-toggle">NGO Projects ▾</a>
+                    <div class="dropdown-menu">
+                        <a href="horizon_gallery.html" class="dropdown-item">Horizon</a>
+                        <a href="choice_gallery.html" class="dropdown-item">C.H.O.I.C.E</a>
+                        
+                    </div>
+                </li>
+                <li><a href="#timeline">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            
+            <!-- Social Icons -->
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/vaibhavthakare2004/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/VaibhavThakare2004" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://leetcode.com/u/vaibhavthakare878/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-2.365-1.89-5.832-1.746-8.082.591l-2.087 2.183-.407.437-.388.414-.048.051c-.918.984-1.478 2.15-1.654 3.408a5.16 5.16 0 0 0-.069.621c-.016.222-.016.447-.002.67.013.194.033.387.061.577.054.369.144.729.27 1.074.127.342.29.67.488.974.1.154.209.303.326.445.117.142.241.277.372.404.131.126.27.246.415.359.145.113.297.219.456.317.158.098.322.189.492.273.169.084.344.161.523.232.179.07.362.133.549.19.186.057.376.107.569.151.193.043.389.081.588.112.199.031.4.056.603.074.203.018.407.03.612.036.205.006.411.005.617-.004.206-.009.411-.024.617-.045l.208-.024c.199-.029.396-.063.593-.103a9.365 9.365 0 0 0 .579-.153 9.102 9.102 0 0 0 .561-.203c.184-.073.365-.153.542-.239.177-.086.35-.179.518-.278.168-.099.332-.204.491-.315.159-.111.313-.228.461-.351.148-.123.289-.252.425-.386.136-.134.265-.273.388-.418.123-.145.238-.295.347-.45.109-.155.209-.316.301-.481.092-.165.176-.334.251-.507.075-.173.141-.35.198-.53.057-.18.105-.363.143-.549.038-.186.067-.374.086-.564.019-.19.028-.381.028-.574 0-.193-.01-.385-.029-.576-.019-.19-.048-.378-.087-.564-.038-.186-.087-.369-.144-.549-.057-.18-.123-.357-.198-.53-.075-.173-.159-.342-.251-.507-.092-.165-.192-.326-.301-.481-.109-.155-.224-.305-.347-.45-.123-.145-.252-.284-.388-.418-.136-.134-.277-.263-.425-.386-.148-.123-.302-.24-.461-.351-.159-.111-.323-.216-.491-.315-.168-.099-.341-.192-.518-.278-.177-.086-.358-.166-.542-.239a9.102 9.102 0 0 0-.561-.203 9.365 9.365 0 0 0-.579-.153 9.553 9.553 0 0 0-.593-.103l-.208-.024c-.206-.021-.411-.036-.617-.045-.206-.009-.412-.01-.617-.004-.205.006-.409.018-.612.036-.203.018-.404.043-.603.074-.199.031-.395.069-.588.112-.193.044-.383.094-.569.151-.187.057-.37.12-.549.19-.179.071-.354.148-.523.232-.17.084-.334.175-.492.273-.159.098-.311.204-.456.317-.145.113-.284.233-.415.359-.131.127-.255.262-.372.404-.117.142-.226.291-.326.445-.198.304-.361.632-.488.974-.126.345-.216.705-.27 1.074-.028.19-.048.383-.061.577-.014.223-.014.448.002.67.016.223.042.442.069.621.176 1.258.736 2.424 1.654 3.408l.048.051.388.414.407.437 2.087 2.183c2.25 2.337 5.717 2.481 8.082.591l3.5-2.831a1.384 1.384 0 0 0 .207-1.943 1.376 1.376 0 0 0-1.94-.207l-3.501 2.831c-1.226.992-3.372.856-4.43-.278l-4.905-5.177a2.545 2.545 0 0 1-.619-1.164 2.68 2.68 0 0 1-.066-.523c-.024-.794.296-1.623.948-2.263l4.276-4.193.02-.019a3.021 3.021 0 0 1 4.205.038l2.396 2.392a1.378 1.378 0 0 0 1.951-.003c.537-.541.537-1.415-.003-1.955l-2.396-2.392c-2.211-2.207-5.815-2.239-8.063-.074l-.039.038-4.277 4.193a5.938 5.938 0 0 0-1.271 1.818 5.83 5.83 0 0 0-.349 1.017 5.527 5.527 0 0 0-.062 2.362c.021.173.052.344.094.513.042.169.095.335.158.497.126.325.291.633.491.918.1.143.209.28.326.408.235.258.49.489.762.69l4.905 5.177c1.058 1.134 3.204 1.27 4.43.278l3.501-2.831c.593-.48 1.461-.387 1.94.207a1.384 1.384 0 0 0-.207 1.943l-3.5 2.831c-2.365 1.89-5.832 1.746-8.082-.591L3.345 15.75l-.048-.051-.388-.414-.407-.437-2.087-2.183c-.918-.984-1.478-2.15-1.654-3.408a5.16 5.16 0 0 0-.069-.621c-.016-.222-.016-.447-.002-.67.013-.194.033-.387.061-.577.054-.369.144-.729.27-1.074.127-.342.29-.67.488-.974.1-.154.209-.303.326-.445.117-.142.241-.277.372-.404.131-.126.27-.246.415-.359.145-.113.297-.219.456-.317.158-.098.322-.189.492-.273.169-.084.344-.161.523-.232.179-.07.362-.133.549-.19.186-.057.376-.107.569-.151.193-.043.389-.081.588-.112.199-.031.4-.056.603-.074.203-.018.407-.03.612-.036.205-.006.411-.005.617.004.206.009.411.024.617.045l.208.024c.199.029.396.063.593.103.197.04.391.087.579.153.188.066.373.141.561.203.184.073.365.153.542.239.177.086.35.179.518.278.168.099.332.204.491.315.159.111.313.228.461.351.148.123.289.252.425.386.136.134.265.273.388.418.123.145.238.295.347.45.109.155.209.316.301.481.092.165.176.334.251.507.075.173.141.35.198.53.057.18.105.363.143.549.038.186.067.374.086.564.019.19.028.381.028.574s-.009.384-.028.574c-.019.19-.048.378-.086.564-.038.186-.086.369-.143.549-.057.18-.123.357-.198.53-.075.173-.159.342-.251.507-.092.165-.192.326-.301.481-.109.155-.224.305-.347.45-.123.145-.252.284-.388.418-.136.134-.277.263-.425.386a7.36 7.36 0 0 1-.461.351c-.159.111-.323.216-.491.315-.168.099-.341.192-.518.278-.177.086-.358.166-.542.239-.188.062-.369.119-.561.203-.188.066-.382.113-.579.153a9.553 9.553 0 0 1-.593.103l-.208.024c-.206.021-.411.036-.617.045-.206.009-.412.01-.617.004-.205-.006-.409-.018-.612-.036-.203-.018-.404-.043-.603-.074-.199-.031-.395-.069-.588-.112-.193-.044-.383-.094-.569-.151-.187-.057-.37-.12-.549-.19-.179-.071-.354-.148-.523-.232-.17-.084-.334-.175-.492-.273-.159-.098-.311-.204-.456-.317-.145-.113-.284-.233-.415-.359-.131-.127-.255-.262-.372-.404-.117-.142-.226-.291-.326-.445-.198-.304-.361-.632-.488-.974-.126-.345-.216-.705-.27-1.074-.028-.19-.048-.383-.061-.577-.014-.223-.014-.448.002-.67.016-.223.042-.442.069-.621.176-1.258.736-2.424 1.654-3.408l.048-.051.388-.414.407-.437 2.087-2.183c2.25-2.337 5.717-2.481 8.082-.591l3.5 2.831a1.384 1.384 0 0 0 1.94.207 1.376 1.376 0 0 0 .207-1.943l-3.501-2.831c-1.226-.992-3.372-.856-4.43.278l-4.905 5.177a2.545 2.545 0 0 1-.619 1.164 2.68 2.68 0 0 1-.066.523c-.024.794.296 1.623.948 2.263l4.276 4.193.02.019a3.021 3.021 0 0 1 4.205-.038l2.396-2.392a1.378 1.378 0 0 0 1.951.003c.537.541.537 1.415-.003 1.955l-2.396 2.392c-2.211 2.207-5.815 2.239-8.063.074l-.039-.038-4.277-4.193a5.938 5.938 0 0 0-1.271-1.818 5.83 5.83 0 0 0-.349-1.017 5.527 5.527 0 0 0-.062-2.362c.021-.173.052-.344.094-.513.042-.169.095-.335.158-.497.126-.325.291-.633.491-.918.1-.143.209-.28.326-.408.235-.258.49-.489.762-.69l4.905-5.177c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-2.365-1.89-5.832-1.746-8.082.591l-2.087 2.183-.407.437-.388.414-.048.051a7.611 7.611 0 0 0-.961 1.575 1.374 1.374 0 0 0 0 0z"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="mobile-menu-toggle">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </div>
+        </nav>
+        <div class="mobile-nav">
+            <a href="#home">Home</a>
+            <a href="#features">About</a>
+            <div class="mobile-dropdown">
+                <a href="#showcase" class="mobile-dropdown-toggle">Projects ▾</a>
+                <div class="mobile-dropdown-menu">
+                    <a href="#showcase" class="mobile-dropdown-item" data-project="project1">Kshitij Foundation</a>
+                    <a href="#showcase" class="mobile-dropdown-item" data-project="project2">Confidence Analyser</a>
+                    <a href="#showcase" class="mobile-dropdown-item" data-project="project3">Refrigerator Door Detection</a>
+                    <a href="#showcase" class="mobile-dropdown-item" data-project="project4">Asset Ticketing System</a>
+                    <a href="#showcase" class="mobile-dropdown-item" data-project="project5">Weather Prediction</a>
+                    <a href="#showcase" class="mobile-dropdown-item" data-project="project6">Muktangan Foundation</a>
+                </div>
+            </div>
+            <div class="mobile-dropdown">
+                <a href="#nonprofit" class="mobile-dropdown-toggle">NGO Projects ▾</a>
+                <div class="mobile-dropdown-menu">
+                    <a href="choice_gallery.html" class="mobile-dropdown-item">C.H.O.I.C.E</a>
+                    <a href="horizon_gallery.html" class="mobile-dropdown-item">Horizon</a>
+                </div>
+            </div>
+            <a href="#timeline">Experience</a>
+            <a href="#contact">Contact</a>
+            
+            <div class="mobile-social-icons">
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://leetcode.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="LeetCode">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-2.365-1.89-5.832-1.746-8.082.591l-2.087 2.183-.407.437-.388.414-.048.051c-.918.984-1.478 2.15-1.654 3.408a5.16 5.16 0 0 0-.069.621c-.016.222-.016.447-.002.67.013.194.033.387.061.577.054.369.144.729.27 1.074.127.342.29.67.488.974.1.154.209.303.326.445.117.142.241.277.372.404.131.126.27.246.415.359.145.113.297.219.456.317.158.098.322.189.492.273.169.084.344.161.523.232.179.07.362.133.549.19.186.057.376.107.569.151.193.043.389.081.588.112.199.031.4.056.603.074.203.018.407.03.612.036.205.006.411.005.617-.004.206-.009.411-.024.617-.045l.208-.024c.199-.029.396-.063.593-.103a9.365 9.365 0 0 0 .579-.153 9.102 9.102 0 0 0 .561-.203c.184-.073.365-.153.542-.239.177-.086.35-.179.518-.278.168-.099.332-.204.491-.315.159-.111.313-.228.461-.351.148-.123.289-.252.425-.386.136-.134.265-.273.388-.418.123-.145.238-.295.347-.45.109-.155.209-.316.301-.481.092-.165.176-.334.251-.507.075-.173.141-.35.198-.53.057-.18.105-.363.143-.549.038-.186.067-.374.086-.564.019-.19.028-.381.028-.574 0-.193-.01-.385-.029-.576-.019-.19-.048-.378-.087-.564-.038-.186-.087-.369-.144-.549-.057-.18-.123-.357-.198-.53-.075-.173-.159-.342-.251-.507-.092-.165-.192-.326-.301-.481-.109-.155-.224-.305-.347-.45-.123-.145-.252-.284-.388-.418-.136-.134-.277-.263-.425-.386-.148-.123-.302-.24-.461-.351-.159-.111-.323-.216-.491-.315-.168-.099-.341-.192-.518-.278-.177-.086-.358-.166-.542-.239a9.102 9.102 0 0 0-.561-.203 9.365 9.365 0 0 0-.579-.153 9.553 9.553 0 0 0-.593-.103l-.208-.024c-.206-.021-.411-.036-.617-.045-.206-.009-.412-.01-.617-.004-.205.006-.409.018-.612.036-.203.018-.404.043-.603.074-.199.031-.395.069-.588.112-.193.044-.383.094-.569.151-.187.057-.37.12-.549.19-.179.071-.354.148-.523.232-.17.084-.334.175-.492.273-.159.098-.311.204-.456.317-.145.113-.284.233-.415.359-.131.127-.255.262-.372.404-.117.142-.226.291-.326.445-.198.304-.361.632-.488.974-.126.345-.216.705-.27 1.074-.028.19-.048.383-.061.577-.014.223-.014.448.002.67.016.223.042.442.069.621.176 1.258.736 2.424 1.654 3.408l.048.051.388.414.407.437 2.087 2.183c2.25 2.337 5.717 2.481 8.082.591l3.5-2.831a1.384 1.384 0 0 0 .207-1.943 1.376 1.376 0 0 0-1.94-.207l-3.501 2.831c-1.226.992-3.372.856-4.43-.278l-4.905-5.177a2.545 2.545 0 0 1-.619-1.164 2.68 2.68 0 0 1-.066-.523c-.024-.794.296-1.623.948-2.263l4.276-4.193.02-.019a3.021 3.021 0 0 1 4.205.038l2.396 2.392a1.378 1.378 0 0 0 1.951-.003c.537-.541.537-1.415-.003-1.955l-2.396-2.392c-2.211-2.207-5.815-2.239-8.063-.074l-.039.038-4.277 4.193a5.938 5.938 0 0 0-1.271 1.818 5.83 5.83 0 0 0-.349 1.017 5.527 5.527 0 0 0-.062 2.362c.021.173.052.344.094.513.042.169.095.335.158.497.126.325.291.633.491.918.1.143.209.28.326.408.235.258.49.489.762.69l4.905 5.177c1.058 1.134 3.204 1.27 4.43.278l3.501-2.831c.593-.48 1.461-.387 1.94.207a1.384 1.384 0 0 0-.207 1.943l-3.5 2.831c-2.365 1.89-5.832 1.746-8.082-.591L3.345 15.75l-.048-.051-.388-.414-.407-.437-2.087-2.183c-.918-.984-1.478-2.15-1.654-3.408a5.16 5.16 0 0 0-.069-.621c-.016-.222-.016-.447-.002-.67.013-.194.033-.387.061-.577.054-.369.144-.729.27-1.074.127-.342.29-.67.488-.974.1-.154.209-.303.326-.445.117-.142.241-.277.372-.404.131-.126.27-.246.415-.359.145-.113.297-.219.456-.317.158-.098.322-.189.492-.273.169-.084.344-.161.523-.232.179-.07.362-.133.549-.19.186-.057.376-.107.569-.151.193-.043.389-.081.588-.112.199-.031.4-.056.603-.074.203-.018.407-.03.612-.036.205-.006.411-.005.617.004.206.009.411.024.617.045l.208.024c.199.029.396.063.593.103.197.04.391.087.579.153.188.066.373.141.561.203.184.073.365.153.542.239.177.086.35.179.518.278.168.099.332.204.491.315.159.111.313.228.461.351.148.123.289.252.425.386.136.134.265.273.388.418.123.145.238.295.347.45.109.155.209.316.301.481.092.165.176.334.251.507.075.173.141.35.198.53.057.18.105.363.143.549.038.186.067.374.086.564.019.19.028.381.028.574s-.009.384-.028.574c-.019.19-.048.378-.086.564-.038.186-.086.369-.143.549-.057.18-.123.357-.198.53-.075.173-.159.342-.251.507-.092.165-.192.326-.301.481-.109.155-.224.305-.347.45-.123.145-.252.284-.388.418-.136.134-.277.263-.425.386a7.36 7.36 0 0 1-.461.351c-.159.111-.323.216-.491.315-.168.099-.341.192-.518.278-.177.086-.358.166-.542.239-.188.062-.369.119-.561.203-.188.066-.382.113-.579.153a9.553 9.553 0 0 1-.593.103l-.208.024c-.206.021-.411.036-.617.045-.206.009-.412.01-.617.004-.205-.006-.409-.018-.612-.036-.203-.018-.404-.043-.603-.074-.199-.031-.395-.069-.588-.112-.193-.044-.383-.094-.569-.151-.187-.057-.37-.12-.549-.19-.179-.071-.354-.148-.523-.232-.17-.084-.334-.175-.492-.273-.159-.098-.311-.204-.456-.317-.145-.113-.284-.233-.415-.359-.131-.127-.255-.262-.372-.404-.117-.142-.226-.291-.326-.445-.198-.304-.361-.632-.488-.974-.126-.345-.216-.705-.27-1.074-.028-.19-.048-.383-.061-.577-.014-.223-.014-.448.002-.67.016-.223.042-.442.069-.621.176-1.258.736-2.424 1.654-3.408l.048-.051.388-.414.407-.437 2.087-2.183c2.25-2.337 5.717-2.481 8.082-.591l3.5 2.831a1.384 1.384 0 0 0 1.94.207 1.376 1.376 0 0 0 .207-1.943l-3.501-2.831c-1.226-.992-3.372-.856-4.43.278l-4.905 5.177a2.545 2.545 0 0 1-.619 1.164 2.68 2.68 0 0 1-.066.523c-.024.794.296 1.623.948 2.263l4.276 4.193.02.019a3.021 3.021 0 0 1 4.205-.038l2.396-2.392a1.378 1.378 0 0 0 1.951.003c.537.541.537 1.415-.003 1.955l-2.396 2.392c-2.211 2.207-5.815 2.239-8.063.074l-.039-.038-4.277-4.193a5.938 5.938 0 0 0-1.271-1.818 5.83 5.83 0 0 0-.349-1.017 5.527 5.527 0 0 0-.062-2.362c.021-.173.052-.344.094-.513.042-.169.095-.335.158-.497.126-.325.291-.633.491-.918.1-.143.209-.28.326-.408.235-.258.49-.489.762-.69l4.905-5.177c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-2.365-1.89-5.832-1.746-8.082.591l-2.087 2.183-.407.437-.388.414-.048.051a7.611 7.611 0 0 0-.961 1.575 1.374 1.374 0 0 0 0 0z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section 1: Hero -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-subtitle">Hello, I'm</div>
+            <h1>Vaibhav Thakare </h1>
+            
+            <div class="hero-description">
+                <p>I create intelligent, accessible, and performance-driven digital experiences that combine the power of machine learning with the creativity of modern web development. My focus is on building projects that solve real-world problems — from AI-based applications to responsive, human-centered websites.</p>
+            </div>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">11+</span>
+                    <span class="hero-stat-label">Projects</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">2+</span>
+                    <span class="hero-stat-label">Years Experience</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">3+</span>
+                    <span class="hero-stat-label">Clients</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">Open</span>
+                    <span class="hero-stat-label">Available for Hire</span>
+                </div>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="#showcase" class="cta-button">View Work</a>
+                <a href="#contact" class="cta-button secondary">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Diagonal Features -->
+    <section class="features" id="features">
+        <div class="features-container">
+            <h2 class="section-title">ABOUT ME</h2>
+            <div class="diagonal-grid">
+                <div class="feature-row">
+                    <div class="feature-content glass">
+                        <div class="feature-icon">👋</div>
+                        <h3>Brief Bio</h3>
+                        <p>I’m a final-year B.Tech student passionate about creating intelligent and user-focused digital solutions. My work bridges machine learning and web development — from AI-based applications to full-stack platforms that make a real-world impact. I enjoy blending logic, creativity, and purpose in everything I build.</p>
+                    </div>
+                    <div class="feature-visual glass"></div>
+                </div>
+                
+               <div class="feature-row">
+  <div class="feature-content glass">
+    <div class="feature-icon">🛠️</div>
+    <h3>Skills</h3>
+    <p>
+      <strong>Programming Languages:</strong> C, C++, Python, JavaScript<br>
+      <strong>Web Development:</strong> HTML, CSS, React, FastAPI, PostgreSQL, Responsive Design, Deployment (Render, Vercel, GoDaddy)<br>
+      <strong>Machine Learning & AI:</strong> TensorFlow, OpenCV, Detectron2, YOLOv5, CNNs, Siamese Networks, Scikit-learn<br>
+      <strong>Tools & Platforms:</strong> Docker, Git, GitHub, VS Code, Postman
+    </p>
+  </div>
+  <div class="feature-visual glass"></div>
+</div>
+
+                
+                <div class="feature-row">
+                    <div class="feature-content glass">
+                        <div class="feature-icon">✨</div>
+                        <h3>What I Offer</h3>
+                        <p>
+I offer end-to-end development — from designing responsive web interfaces to integrating machine learning models into production-ready systems. 
+My focus is on building high-performance, accessible, and data-driven products that combine creativity, functionality, and real-world application.
+</p>
+
+                    </div>
+                    <div class="feature-visual glass"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Section 3: Projects Carousel -->
+    <section class="showcase-carousel" id="showcase">
+        <h2 class="section-title">PROJECTS</h2>
+        <div class="project-carousel-container">
+            <div class="project-slide">
+                <div class="project-item" style="background-image: url('images/Kshitij_Foundation.png');">
+                    <div class="project-content">
+                        <div class="project-name">NGO-Website</div>
+                        <div class="project-des">
+                            Developed a fully functional website for Kshitij Foundation.
+                        </div>
+                        <button class="view-project-btn" data-project="project1">View Project</button>
+                    </div>
+                </div>
+
+                <div class="project-item" style="background-image: url('images/Stress.jpg');">
+                    <div class="project-content">
+                        <div class="project-name">Confidence Analyser</div>
+                        <div class="project-des">
+                            
+                        </div>
+                        <button class="view-project-btn" data-project="project2">View Project</button>
+                    </div>
+                </div>
+
+                <div class="project-item" style="background-image: url('images/Refrigerator_door.png');">
+                    <div class="project-content">
+                        <div class="project-name"></div>
+                        <div class="project-des">
+                            
+                        </div>
+                        <button class="view-project-btn" data-project="project3">View Project</button>
+                    </div>
+                </div>
+
+                <div class="project-item" style="background-image: url('images/Asset_Management.png');">
+                    <div class="project-content">
+                        <div class="project-name"> Asset Ticketing System</div>
+                        <div class="project-des">
+                            
+                        </div>
+                        <button class="view-project-btn" data-project="project4">View Project</button>
+                    </div>
+                </div>
+
+                <div class="project-item" style="background-image: url('images/Wheather_prediction.png');">
+                    <div class="project-content">
+                        <div class="project-name">Real-Time Weather Prediction System</div>
+                        <div class="project-des">
+                
+                        </div>
+                        <button class="view-project-btn" data-project="project5">View Project</button>
+                    </div>
+                </div>
+                <div class="project-item" style="background-image: url('images/Muktangan_Foundation.png');">
+                    <div class="project-content">
+                        <div class="project-name"></div>
+                        <div class="project-des">
+                        
+                        </div>
+                        <button class="view-project-btn" data-project="project6">View Project</button>
+                    </div>
+                </div>
+            </div>
+            <div class="project-button">
+                <button class="project-prev">◁</button>
+                <button class="project-next">▷</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3.5: Non-Profit Initiatives -->
+    <section class="nonprofit-initiatives" id="nonprofit">
+        <h2 class="section-title">NON-PROFIT INITIATIVES</h2>
+        <div class="nonprofit-container">
+            <div class="nonprofit-intro">
+                <p class="intro-text">As a founder of two non-profit organizations, I'm committed to using technology and innovation to create positive social impact and empower communities.</p>
+            </div>
+            
+            <div class="nonprofit-grid">
+                <div class="nonprofit-card glass">
+                    <img src="images/horizon/horizon_logo.png" alt="Horizon Logo" class="nonprofit-logo">
+                    <h4>Horizon</h4>
+                    <span class="role-badge">Founder & Leader</span>
+                    <p class="nonprofit-vision"><strong>Vision:</strong> To Eradicate the Fear of Mathematics from Students</p>
+                    <p class="nonprofit-mission"><strong>Mission:</strong> Building strong mathematical foundations and making math accessible to every student</p>
+                    <p>Addressing the reality that 82% of students in Classes 7-10 fear mathematics. We build solid foundations through personalized teaching and mentorship at Jivhada (Daan Pramita Charitable Trust), impacting 30+ girl students weekly.</p>
+                    
+                    <div class="nonprofit-programs">
+                        <div class="program-tag">📚 New Roots - Board Exam Prep</div>
+                        <div class="program-tag">💎 Gems of World - Success Stories</div>
+                        <div class="program-tag">🏫 Jivhada - Weekend Classes</div>
+                    </div>
+                    
+                    <div class="nonprofit-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">30+</span>
+                            <span class="stat-label">Students Weekly</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Team Members</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">Aug 2023</span>
+                            <span class="stat-label">Founded</span>
+                        </div>
+                    </div>
+                    
+                    <div class="nonprofit-links">
+                        <a href="https://www.instagram.com/horiz0n.2023?igsh=aXUza3FreXQ3MXFy" target="_blank" rel="noopener noreferrer" class="nonprofit-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                            Instagram Updates
+                        </a>
+                        <a href="horizon_gallery.html" class="nonprofit-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                <polyline points="21 15 16 10 5 21"></polyline>
+                            </svg>
+                            View Photo Gallery
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nonprofit-card glass">
+                    <img src="images/choice/choice_logo.png" alt="CHOICE Logo" class="nonprofit-logo">
+                    <h4>C.H.O.I.C.E</h4>
+                    <span class="role-badge">Founder & Leader</span>
+                    <p class="nonprofit-vision"><strong>Vision:</strong> Awareness regarding substance abuse and encourage people to stay away from drugs</p>
+                    <p class="nonprofit-mission"><strong>Mission:</strong> To Make our country a Drug-free Country</p>
+                    <p><strong>Come Home On Inbuilt Courage and Excitement</strong> - Your body is your first home. We channel natural excitement through progressive habits, proving "I am high on life" without external substance abuse. Building a Drug-free Bharat through online campaigns and offline sessions!</p>
+                    
+                    <div class="nonprofit-programs">
+                        <div class="program-tag">🌐 I Choose Life Campaign</div>
+                        <div class="program-tag">🎭 Awareness Skits & Speeches</div>
+                        <div class="program-tag">🏫 College Sessions</div>
+                    </div>
+                    
+                    <div class="nonprofit-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">200+</span>
+                            <span class="stat-label">Students Reached</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">25+</span>
+                            <span class="stat-label">Team Members</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">Jan 2024</span>
+                            <span class="stat-label">Founded</span>
+                        </div>
+                    </div>
+                    
+                    <div class="nonprofit-links">
+                        <a href="https://www.instagram.com/c.h.o.i.c.e_._/" target="_blank" rel="noopener noreferrer" class="nonprofit-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                            Instagram Updates
+                        </a>
+                        <a href="choice_gallery.html" class="nonprofit-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                <polyline points="21 15 16 10 5 21"></polyline>
+                            </svg>
+                            View Photo Gallery
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Timeline -->
+    <section class="timeline" id="timeline">
+        <h2 class="section-title">EXPERIENCE</h2>
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content glass">
+                    <div class="timeline-year">Aug 2023</div>
+                    <h4>Founder & Leader</h4>
+                    <p class="timeline-organization">Horizon:-HRBS(NGO)</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content glass">
+                    <div class="timeline-year">Jan 2024</div>
+                    <h4>Founder & Leader</h4>
+                    <p class="timeline-organization">Choice:-HRBS(NGO)</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content glass">
+                    <div class="timeline-year">Oct 2024</div>
+                    <h4>Web Developer</h4>
+                    <p class="timeline-organization">Kshitij Foundation</p>
+                    <a href="https://drive.google.com/file/d/101Kb4FncofmyQL2iDJ2owduB06IW6heM/view" class="experience-letter" target="_blank" rel="noopener noreferrer">View Experience Letter</a>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content glass">
+                    <div class="timeline-year">Jun 2025</div>
+                    <h4>Machine Learning Intern</h4>
+                    <p class="timeline-organization">Accrevent Solutions Private Limited</p>
+                    <a href="https://drive.google.com/file/d/1eQ3UP2bO-AMVqUj-zaKGh-bV250y6713/view" class="experience-letter" target="_blank" rel="noopener noreferrer">View Experience Letter</a>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content glass">
+                    <div class="timeline-year">Jul 2025</div>
+                    <h4>Web Developer</h4>
+                    <p class="timeline-organization">Muktangan Foundation</p>
+                    <a href="https://drive.google.com/file/d/1xAxcy7M6pTvDeW2g1UN-hbOLKP9kMJ9e/view" class="experience-letter" target="_blank" rel="noopener noreferrer">View Experience Letter</a>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content glass">
+                    <div class="timeline-year">Oct 2025</div>
+                    <h4>Software Developer</h4>
+                    <p class="timeline-organization">Omnipotent Software Solutions</p>
+                    <a href="https://drive.google.com/file/d/1MNcjxfvOiWBnqxUOvwMOoJO0B07AtceG/view" class="experience-letter" target="_blank" rel="noopener noreferrer">View Experience Letter</a>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
+    </section>
+
+
+            <!-- Certifications Section 
+            <div class="certifications-section">
+                <h3 class="subsection-title">Certifications & Awards</h3>
+                <div class="certifications-grid">
+                    <div class="cert-card glass">
+                        <div class="cert-icon">🏆</div>
+                        <div class="cert-info">
+                            <h4>AWS Certified Developer</h4>
+                            <p class="cert-issuer">Amazon Web Services</p>
+                            <p class="cert-date">2024</p>
+                        </div>
+                        <a href="#" class="cert-btn">View Credential</a>
+                    </div>
+
+                    <div class="cert-card glass">
+                        <div class="cert-icon">🎓</div>
+                        <div class="cert-info">
+                            <h4>React Advanced Certification</h4>
+                            <p class="cert-issuer">Meta / Facebook</p>
+                            <p class="cert-date">2023</p>
+                        </div>
+                        <a href="#" class="cert-btn">View Credential</a>
+                    </div>
+
+                    <div class="cert-card glass">
+                        <div class="cert-icon">⚡</div>
+                        <div class="cert-info">
+                            <h4>Google UX Design Professional</h4>
+                            <p class="cert-issuer">Google</p>
+                            <p class="cert-date">2023</p>
+                        </div>
+                        <a href="#" class="cert-btn">View Credential</a>
+                    </div>
+
+                    <div class="cert-card glass">
+                        <div class="cert-icon">🌟</div>
+                        <div class="cert-info">
+                            <h4>Accessibility Specialist (IAAP)</h4>
+                            <p class="cert-issuer">International Association</p>
+                            <p class="cert-date">2024</p>
+                        </div>
+                        <a href="#" class="cert-btn">View Credential</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+     -->
+
+    <!-- Section 4.6: My Philosophy - Animated Text Section -->
+    <section class="text-animation-section">
+        <div class="text-animation">
+            <div class="text-animation__text">
+                I believe in
+
+                <span class="text-animation__word">
+                    <span class="text-animation__blur">
+                        <span class="text-animation__image-wrapper">
+                            <img class="text-animation__animated-img" src="images/templatemo-neural-01.jpg" alt="Clean Code" width="270" height="110" loading="lazy">
+                            <div class="text-animation__reveal left"></div>
+                            <div class="text-animation__reveal right"></div>
+                        </span>
+                    </span>
+                    <span>
+                        clean
+                    </span>
+                </span>
+
+                CODE that <br> scales, designs
+
+                <span class="text-animation__word">
+                    <span class="text-animation__blur">
+                        <span class="text-animation__image-wrapper">
+                            <img class="text-animation__animated-img" src="images/templatemo-neural-02.jpg" alt="Design" width="270" height="110" loading="lazy">
+                            <div class="text-animation__reveal left"></div>
+                            <div class="text-animation__reveal right"></div>
+                        </span>
+                    </span>
+                    <span>
+                        that
+                    </span>
+                </span>
+
+                speak, and <br> interactions
+
+                <span class="text-animation__word">
+                    <span class="text-animation__blur">
+                        <span class="text-animation__image-wrapper">
+                            <img class="text-animation__animated-img" src="images/templatemo-neural-03.jpg" alt="Interactions" width="270" height="110" loading="lazy">
+                            <div class="text-animation__reveal left"></div>
+                            <div class="text-animation__reveal right"></div>
+                        </span>
+                    </span>
+                    <span>
+                        that
+                    </span>
+                </span>
+
+                <br> feel natural. <br>
+
+                <span class="text-animation__word"><span>Every</span>
+                    <span class="text-animation__blur">
+                        <span class="text-animation__image-wrapper">
+                            <img class="text-animation__animated-img" src="images/templatemo-neural-01.jpg" alt="Project" width="270" height="110" loading="lazy">
+                            <div class="text-animation__reveal left"></div>
+                            <div class="text-animation__reveal right"></div>
+                        </span>
+                    </span>
+                </span>
+
+                project <br> tells a
+
+                story.
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Section 5: Contact -->
+    <section class="contact" id="contact">
+        <!-- Soft gradient background and particles for depth -->
+        <div class="contact-bg-overlay"></div>
+        <div class="contact-particles" id="contactParticles"></div>
+
+        <div class="contact-container">
+            <div class="contact-info glass">
+                <div class="contact-tagline" id="contactTagline" aria-live="polite"></div>
+                <h3 class="glow-title">Vaibhav Thakare</h3>
+                <p>Interested in working together? I’m available for freelance and full-time opportunities. Reach out and let’s build something great.</p>
+                
+                <!-- Email Display -->
+                <div class="email-display">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 4 8 8 8-8"/></svg>
+                    <a href="mailto:vaibhavthakare878@gmail.com" class="email-link">vaibhavthakare878@gmail.com</a>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/vaibhavthakare2004/" target="_blank" rel="noopener" class="social-btn" data-tooltip="LinkedIn" aria-label="LinkedIn">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h4v16H4z"></path><circle cx="6" cy="2" r="2"></circle><path d="M12 8h4v2c.5-.8 1.6-2 4-2 3 0 4 2 4 6v6h-4v-6c0-2-1-3-2.5-3S15 12 15 14v6h-4V8z"></path></svg>
+                    </a>
+                    <a href="https://github.com/VaibhavThakare2004" target="_blank" rel="noopener" class="social-btn" data-tooltip="GitHub" aria-label="GitHub">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12a12 12 0 0 0 8.21 11.39c.6.11.79-.26.79-.58v-2.23c-3.34.72-4.03-1.42-4.03-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.66-.31-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.17 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.01 2.05.14 3.01.4 2.29-1.55 3.29-1.23 3.29-1.23.66 1.65.25 2.87.13 3.17.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12Z"/></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="contact-form glass">
+                <div class="form-group">
+                    <input type="text" placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Subject" required>
+                </div>
+                <div class="form-group">
+                    <textarea rows="5" placeholder="Message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </div>
+        </div>
+        <div class="contact-toast" id="contactToast" role="status" aria-hidden="true"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <!-- About Section -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Vaibhav Thakare</h3>
+                    <p class="footer-description">
+                        Full Stack Developer passionate about creating elegant solutions to complex problems. 
+                        Specializing in AI/ML, Web Development, and Data Science.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/vaibhavthakare2004/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h4v16H4z"></path><circle cx="6" cy="2" r="2"></circle><path d="M12 8h4v2c.5-.8 1.6-2 4-2 3 0 4 2 4 6v6h-4v-6c0-2-1-3-2.5-3S15 12 15 14v6h-4V8z"></path></svg>
+                        </a>
+                        <a href="https://github.com/VaibhavThakare2004" target="_blank" rel="noopener" aria-label="GitHub">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12a12 12 0 0 0 8.21 11.39c.6.11.79-.26.79-.58v-2.23c-3.34.72-4.03-1.42-4.03-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.66-.31-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.17 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.01 2.05.14 3.01.4 2.29-1.55 3.29-1.23 3.29-1.23.66 1.65.25 2.87.13 3.17.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12Z"/></svg>
+                        </a>
+                        <a href="https://leetcode.com/u/vaibhavthakare878/" target="_blank" rel="noopener" aria-label="LeetCode">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/></svg>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-nav">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">About</a></li>
+                        <li><a href="#showcase">Projects</a></li>
+                        <li><a href="#nonprofit">NGO Projects</a></li>
+                        <li><a href="#timeline">Experience</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Projects -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Featured Projects</h3>
+                    <ul class="footer-nav">
+                        <li><a href="#" data-project="project2">Confidence Analyser</a></li>
+                        <li><a href="#" data-project="project3">Refrigerator Door Detection</a></li>
+                        <li><a href="#" data-project="project4">Asset Ticketing System</a></li>
+                        <li><a href="choice_gallery.html">C.H.O.I.C.E </a></li>
+                        <li><a href="horizon_gallery.html">Horizon </a></li>
+                    </ul>
+                </div>
+
+                <!-- Skills & Technologies -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Technologies</h3>
+                    <div class="footer-tags">
+            
+                        <span>C++</span>
+                        <span>Python</span>
+                    
+                        <span>HTML CSS</span>
+
+                        <span>React</span>
+                        <span>FastAPI</span>
+                        <span>OpenCV</span>
+                        <span>PostgreSQL</span>
+                        <span>ML Algorithms</span>
+                        <span>Deep Learning Frameworks</span>
+                        <span>Object Detection Models</span>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-divider"></div>
+                <div class="footer-bottom-content">
+                    <p class="footer-copyright">
+                        &copy; 2025 Vaibhav Thakare. All rights reserved.
+                    </p>
+                    <div class="footer-meta">
+                        <span>Built with ❤️ and ☕</span>
+                        <span class="footer-separator">|</span>
+                        <span>Designed & Developed by Vaibhav Thakare</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Details Modal -->
+    <div class="project-modal" id="projectModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h2 id="modalTitle">Project Title</h2>
+                    <div class="modal-tags" id="modalTags"></div>
+                </div>
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="Project Screenshot">
+                </div>
+                <div class="modal-details">
+                    <div class="modal-section">
+                        <h3>Overview</h3>
+                        <p id="modalOverview"></p>
+                    </div>
+                    <div class="modal-section">
+                        <h3>Key Features</h3>
+                        <ul id="modalFeatures"></ul>
+                    </div>
+                    <div class="modal-section">
+                        <h3>Technologies Used</h3>
+                        <div class="tech-stack" id="modalTech"></div>
+                    </div>
+                    <div class="modal-section">
+                        <h3>My Role</h3>
+                        <p id="modalRole"></p>
+                    </div>
+                    <div class="modal-section">
+                        <h3>Challenges & Solutions</h3>
+                        <p id="modalChallenges"></p>
+                    </div>
+                    <div class="modal-actions">
+                        <a id="modalLiveLink" href="#" target="_blank" rel="noopener noreferrer" class="modal-btn primary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                            Live Demo
+                        </a>
+                        <a id="modalGithubLink" href="#" target="_blank" rel="noopener noreferrer" class="modal-btn secondary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>

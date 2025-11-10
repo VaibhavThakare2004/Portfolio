@@ -302,16 +302,15 @@ body[data-theme="calm-friendly"] .neural-background {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background: linear-gradient(135deg, rgba(10, 0, 30, 0.98), rgba(20, 0, 40, 0.98));
     backdrop-filter: blur(20px);
     z-index: 10000;
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
     transition: opacity 0.5s ease, visibility 0.5s ease;
     -webkit-overflow-scrolling: touch;
-    overscroll-behavior: contain;
 }
 
 .theme-welcome-overlay.hidden {
@@ -325,16 +324,13 @@ body[data-theme="calm-friendly"] .neural-background {
     width: 100%;
     margin: 0 auto;
     animation: fadeInUp 0.8s ease-out;
-    padding: 40px 20px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 80px 20px 100px 20px;
+    min-height: 110vh;
 }
 
 .welcome-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 .welcome-title {
@@ -381,8 +377,9 @@ body[data-theme="calm-friendly"] .neural-background {
 .theme-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    margin-top: 30px;
+    gap: 30px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .theme-card {

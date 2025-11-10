@@ -14,64 +14,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
     const themeToggleBtn = document.getElementById('themeToggleBtn');
     const themeSwitcher = document.getElementById('themeSwitcher');
-    const themeWelcomeOverlay = document.getElementById('themeWelcomeOverlay');
-    const themeCards = document.querySelectorAll('.theme-card');
     
-    // Always show welcome screen on page load
-    themeWelcomeOverlay.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-    
+    // Load saved theme from localStorage
     const savedTheme = localStorage.getItem('portfolioTheme') || 'original';
-    const skipThemeBtn = document.getElementById('skipThemeBtn');
     
-    // Function to hide welcome screen
-    const hideWelcomeScreen = () => {
-        themeWelcomeOverlay.classList.add('hidden');
-        document.body.style.overflow = '';
-    };
+    // Apply saved theme on page load
+    if (savedTheme !== 'original') {
+        body.setAttribute('data-theme', savedTheme);
+    }
     
-    // Skip button click
-    skipThemeBtn.addEventListener('click', () => {
-        // Use default theme (original)
-        body.removeAttribute('data-theme');
-        localStorage.setItem('portfolioTheme', 'original');
-        
-        // Update active button in sidebar
-        themeButtons.forEach(btn => {
-            btn.classList.remove('active');
-            if (btn.dataset.theme === 'original') {
-                btn.classList.add('active');
-            }
-        });
-        
-        hideWelcomeScreen();
-    });
-    
-    // Welcome screen theme card click
-    themeCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const theme = card.dataset.theme;
-            
-            // Apply theme
-            if (theme === 'original') {
-                body.removeAttribute('data-theme');
-            } else {
-                body.setAttribute('data-theme', theme);
-            }
-            
-            // Save theme
-            localStorage.setItem('portfolioTheme', theme);
-            
-            // Update active button in sidebar
-            themeButtons.forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.dataset.theme === theme) {
-                    btn.classList.add('active');
-                }
-            });
-            
-            hideWelcomeScreen();
-        });
+    // Update active button based on saved theme
+    themeButtons.forEach(btn => {
+        if (btn.dataset.theme === savedTheme) {
+            btn.classList.add('active');
+        }
     });
     
     // Toggle theme switcher visibility
