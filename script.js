@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Handle dropdown project navigation - open modal directly
-        document.querySelectorAll('.dropdown-item[data-project], .mobile-dropdown-item[data-project]').forEach(item => {
+        document.querySelectorAll('.dropdown-item[data-project], .mobile-dropdown-item[data-project], .footer-nav a[data-project]').forEach(item => {
             item.addEventListener('click', (e) => {
                 e.preventDefault();
                 const projectId = item.getAttribute('data-project');
