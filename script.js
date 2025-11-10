@@ -424,7 +424,7 @@ document.addEventListener('DOMContentLoaded', () => {
             project2: {
     title: "AI-Powered Stress and Confidence Analyzer",
     tags: ["Deep Learning", "Emotion Recognition", "Real-time Analysis"],
-    image: "https://images.unsplash.com/photo-1581090464777-28a84814d94e?w=800&h=600&fit=crop",
+    image: "images/Stress.jpg",
     overview: "Developed an intelligent system that analyzes facial expressions and vocal patterns to assess stress and confidence levels in real time. The application combines video and audio processing with deep learning models to provide accurate emotional insights, enhancing self-awareness and communication analysis.",
     features: [
         "Real-time face and emotion detection using MediaPipe and CNN models",
