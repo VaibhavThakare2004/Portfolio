@@ -342,9 +342,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Animate the whole text color change
                 gsap.fromTo(
                     mainTextElement,
-                    { color: "#ffffff" },
-                    {
-                        color: "#e0a3ff",
+                        { color: "var(--text-color)" },
+                        {
+                            color: "var(--primary-color)",
                         scrollTrigger: {
                             trigger: ".text-animation__text",
                             start: "top bottom",
@@ -786,5 +786,132 @@ project6: {
                 btn.addEventListener('click', () => {
                     setTimeout(() => showToast("Message sent! I'll get back to you soon."), 1600);
                 });
+            }
+
+            // Phone input validation/masking and call action
+            const phoneInput = document.getElementById('contactPhone');
+            const phoneHint = document.getElementById('phoneHint');
+            const callBtn = document.getElementById('callMeBtn');
+            const normalize = (v) => v.replace(/[^+0-9\s-]/g, '').trim();
+            const isValidPhone = (v) => {
+                const digits = v.replace(/\D/g, '');
+                return digits.length >= 8; // simple length check; pattern attribute handles basic format
+            };
+            if (phoneInput) {
+                phoneInput.addEventListener('input', () => {
+                    const val = normalize(phoneInput.value);
+                    phoneInput.value = val;
+                    if (!val) {
+                        phoneHint.textContent = '';
+                        phoneHint.classList.remove('valid', 'invalid');
+                        return;
+                    }
+                    if (isValidPhone(val)) {
+                        phoneHint.textContent = 'Looks good. We can call this number.';
+                        phoneHint.classList.add('valid');
+                        phoneHint.classList.remove('invalid');
+                    } else {
+                        phoneHint.textContent = 'Please enter a valid phone number (min 8 digits).';
+                        phoneHint.classList.add('invalid');
+                        phoneHint.classList.remove('valid');
+                    }
+                });
+            }
+            if (callBtn && phoneInput) {
+                callBtn.addEventListener('click', () => {
+                    const val = normalize(phoneInput.value);
+                    if (!val || !isValidPhone(val)) {
+                        if (phoneHint) {
+                            phoneHint.textContent = 'Enter a valid number to place a call.';
+                            phoneHint.classList.add('invalid');
+                            phoneHint.classList.remove('valid');
+                        }
+                        return;
+                    }
+                    const tel = 'tel:' + val.replace(/\s|-/g, '');
+                    window.location.href = tel;
+                });
+            }
+
+            // Name, Email, Subject, Message enhancements
+            const nameInput = document.getElementById('contactName');
+            const nameHint = document.getElementById('nameHint');
+            const nameClearBtn = document.getElementById('nameClearBtn');
+            if (nameInput) {
+                nameInput.addEventListener('input', () => {
+                    // Auto-capitalize each word
+                    const capped = nameInput.value.replace(/\b(\w)(\w*)/g, (m, a, b) => a.toUpperCase() + b.toLowerCase());
+                    if (capped !== nameInput.value) {
+                        const pos = nameInput.selectionStart; nameInput.value = capped; nameInput.selectionStart = nameInput.selectionEnd = pos;
+                    }
+                    if (nameInput.value.trim().length >= 2) {
+                        nameHint.textContent = 'Nice to meet you!';
+                        nameHint.classList.add('valid'); nameHint.classList.remove('invalid');
+                    } else {
+                        nameHint.textContent = 'Please enter your name.';
+                        nameHint.classList.add('invalid'); nameHint.classList.remove('valid');
+                    }
+                });
+            }
+            if (nameClearBtn && nameInput) {
+                nameClearBtn.addEventListener('click', () => { nameInput.value = ''; nameInput.focus(); if (nameHint){ nameHint.textContent=''; nameHint.classList.remove('valid','invalid'); } });
+            }
+
+            const emailInput = document.getElementById('contactEmail');
+            const emailHint = document.getElementById('emailHint');
+            const emailCopyBtn = document.getElementById('emailCopyBtn');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (emailInput) {
+                emailInput.addEventListener('input', () => {
+                    const v = emailInput.value.trim();
+                    if (!v) { emailHint.textContent=''; emailHint.classList.remove('valid','invalid'); return; }
+                    if (emailRegex.test(v)) { emailHint.textContent='Looks valid.'; emailHint.classList.add('valid'); emailHint.classList.remove('invalid'); }
+                    else { emailHint.textContent='Please enter a valid email address.'; emailHint.classList.add('invalid'); emailHint.classList.remove('valid'); }
+                });
+            }
+            if (emailCopyBtn && emailInput) {
+                emailCopyBtn.addEventListener('click', async () => {
+                    try { await navigator.clipboard.writeText(emailInput.value); }
+                    catch {}
+                    const t = document.getElementById('contactToast');
+                    if (t) {
+                        t.textContent = 'Email copied to clipboard'; t.classList.add('show'); t.setAttribute('aria-hidden','false');
+                        setTimeout(()=>{ t.classList.remove('show'); t.setAttribute('aria-hidden','true'); }, 1800);
+                    }
+                });
+            }
+
+            const subjectInput = document.getElementById('contactSubject');
+            const subjectHint = document.getElementById('subjectHint');
+            const subjectNormalizeBtn = document.getElementById('subjectNormalizeBtn');
+            const normalizeSubject = (s) => s.replace(/\s+/g,' ').trim().replace(/(^\w|[.!?]\s+\w)/g, c => c.toUpperCase());
+            if (subjectInput) {
+                subjectInput.addEventListener('input', () => {
+                    if (subjectInput.value.trim().length >= 3) { subjectHint.textContent='Great subject!'; subjectHint.classList.add('valid'); subjectHint.classList.remove('invalid'); }
+                    else { subjectHint.textContent='Add a brief subject (min 3 chars).'; subjectHint.classList.add('invalid'); subjectHint.classList.remove('valid'); }
+                });
+            }
+            if (subjectNormalizeBtn && subjectInput) {
+                subjectNormalizeBtn.addEventListener('click', () => {
+                    subjectInput.value = normalizeSubject(subjectInput.value);
+                    subjectInput.dispatchEvent(new Event('input'));
+                    subjectInput.focus();
+                });
+            }
+
+            const messageInput = document.getElementById('contactMessage');
+            const messageHint = document.getElementById('messageHint');
+            const messageCount = document.getElementById('messageCount');
+            const maxLen = 500;
+            if (messageInput) {
+                messageInput.setAttribute('maxlength', maxLen);
+                const updateCount = () => {
+                    const len = messageInput.value.length;
+                    if (messageCount) messageCount.textContent = `${len} / ${maxLen}`;
+                    if (len < 10) { messageHint.textContent='Tell me a bit more about your project.'; messageHint.classList.add('invalid'); messageHint.classList.remove('valid'); }
+                    else { messageHint.textContent='Thanks! This helps me understand your needs.'; messageHint.classList.add('valid'); messageHint.classList.remove('invalid'); }
+                };
+                messageInput.addEventListener('input', updateCount);
+                updateCount();
             }
         })();
