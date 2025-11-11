@@ -1820,10 +1820,15 @@ body[data-theme="calm-friendly"] .neural-background {
 .role-badge {
     display: inline-block;
     padding: 8px 20px;
-    background: linear-gradient(135deg, rgba(224, 163, 255, 0.2), rgba(255, 105, 180, 0.2));
-    border: 1px solid rgba(224, 163, 255, 0.3);
+    /* Use theme colors instead of fixed pinks */
+    background: linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--primary-color) 20%, transparent),
+        color-mix(in srgb, var(--secondary-color) 20%, transparent)
+    );
+    border: 1px solid color-mix(in srgb, var(--primary-color) 30%, transparent);
     border-radius: 20px;
-    color: #e0a3ff;
+    color: var(--primary-color);
     font-size: 0.9rem;
     font-weight: 600;
     margin-bottom: 20px;
@@ -1852,7 +1857,8 @@ body[data-theme="calm-friendly"] .neural-background {
     font-size: 1.05rem !important;
     margin-bottom: 15px !important;
     padding: 12px 15px;
-    background: rgba(255, 105, 180, 0.1);
+    /* Tie to theme secondary color with transparency */
+    background: color-mix(in srgb, var(--secondary-color) 12%, transparent);
     border-radius: 8px;
 }
 
@@ -1866,8 +1872,8 @@ body[data-theme="calm-friendly"] .neural-background {
 .program-tag {
     display: inline-block;
     padding: 8px 16px;
-    background: rgba(224, 163, 255, 0.15);
-    border: 1px solid rgba(224, 163, 255, 0.3);
+    background: color-mix(in srgb, var(--primary-color) 15%, transparent);
+    border: 1px solid color-mix(in srgb, var(--primary-color) 30%, transparent);
     border-radius: 20px;
     color: var(--primary-color);
     font-size: 0.9rem;
@@ -1876,10 +1882,10 @@ body[data-theme="calm-friendly"] .neural-background {
 }
 
 .program-tag:hover {
-    background: rgba(224, 163, 255, 0.25);
+    background: color-mix(in srgb, var(--primary-color) 25%, transparent);
     border-color: var(--primary-color);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(224, 163, 255, 0.3);
+    box-shadow: 0 5px 15px color-mix(in srgb, var(--primary-color) 30%, transparent);
 }
 
 .nonprofit-stats {
