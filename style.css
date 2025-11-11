@@ -322,6 +322,12 @@ body[data-theme="calm-friendly"] .neural-background {
 .theme-welcome-content {
     max-width: 1200px;
     width: 100%;
+/* Always-open helper if you decide to force visibility */
+.theme-switcher.persistent {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+}
     margin: 0 auto;
     animation: fadeInUp 0.8s ease-out;
     padding: 80px 20px 100px 20px;
@@ -1353,14 +1359,13 @@ body[data-theme="calm-friendly"] .neural-background {
 }
  .feature-visual {
      flex: 1;
-     height: 300px;
      position: relative;
      border-radius: 20px;
      overflow: hidden;
-     background-size: cover;
-     background-position: center;
-     background-repeat: no-repeat;
      transition: all 0.4s ease;
+     display: flex;
+     align-items: center;
+     justify-content: center;
 }
  .feature-visual:hover {
      transform: scale(1.05);
@@ -1381,15 +1386,13 @@ body[data-theme="calm-friendly"] .neural-background {
  .feature-visual:hover::before {
      background: linear-gradient(45deg, rgba(224, 163, 255, 0.2), rgba(255, 105, 180, 0.2));
 }
- .feature-row:nth-child(1) .feature-visual {
-     background-image: url('images/front1.png');
-}
- .feature-row:nth-child(2) .feature-visual {
-     background-image: url('images/front2.png');
-}
- .feature-row:nth-child(3) .feature-visual {
-     background-image: url('images/templatemo-neural-03.jpg');
-}
+ /* Remove background-image assignment; now using inline <img> */
+ .feature-visual img {
+     width: 100%;
+     height: 100%;
+     object-fit: contain; /* show full image */
+     display: block;
+ }
  .feature-icon {
      font-size: 4rem;
      margin-bottom: 25px;
@@ -2884,7 +2887,7 @@ footer::before {
     	flex: 0;
 	}
     .feature-visual {
-        height: 250px; /* Adjust the height for mobile view */
+        height: auto; /* allow image to set height */
         width: 100%;
     }
     

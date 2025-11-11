@@ -30,17 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    // Toggle theme switcher visibility
+    // Toggle theme switcher visibility (manual only)
     themeToggleBtn.addEventListener('click', () => {
         themeSwitcher.classList.toggle('active');
     });
     
-    // Close theme switcher when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!themeToggleBtn.contains(e.target) && !themeSwitcher.contains(e.target)) {
-            themeSwitcher.classList.remove('active');
-        }
-    });
+    // Keep the theme switcher persistent: disable auto-close on outside clicks
+    // (No listener here so it stays open unless user toggles it)
     
     // Update active button based on saved theme
     themeButtons.forEach(btn => {
@@ -70,8 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Save theme to localStorage
             localStorage.setItem('portfolioTheme', theme);
             
-            // Close theme switcher after selection
-            themeSwitcher.classList.remove('active');
+            // Keep switcher open after selection for quick theme testing
+            // Do not remove 'active' here
         });
     });
 });
