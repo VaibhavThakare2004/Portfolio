@@ -2702,6 +2702,110 @@ body[data-theme="calm-friendly"] .contact .social-links .social-btn:hover {
 }
 .contact-toast.show { opacity: 1; transform: translateY(0); }
 
+/* Thank You Overlay */
+.thankyou-overlay {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(0,0,0,0.85), rgba(0,0,0,0.92));
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .45s ease;
+}
+.thankyou-overlay.active { opacity: 1; pointer-events: auto; }
+.thankyou-card {
+    width: min(480px, 92%);
+    background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+    border: 1px solid rgba(255,255,255,0.16);
+    padding: 42px 38px 34px;
+    border-radius: 28px;
+    position: relative;
+    box-shadow: 0 28px 70px -18px rgba(0,0,0,0.65), 0 6px 22px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08) inset;
+    overflow: hidden;
+    animation: thankyouPop .6s cubic-bezier(.16,.72,.3,1);
+}
+@keyframes thankyouPop {
+    0% { transform: scale(.85) translateY(40px); opacity: 0; }
+    60% { transform: scale(1.03) translateY(-6px); opacity: 1; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+.thankyou-card::before, .thankyou-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 115%, color-mix(in srgb,var(--primary-color) 42%, transparent), transparent 70%),
+      radial-gradient(circle at 110% -5%, color-mix(in srgb,var(--secondary-color) 38%, transparent), transparent 70%);
+    opacity: .55;
+    pointer-events: none;
+}
+.thankyou-card::after {
+    filter: blur(38px);
+    opacity: .35;
+}
+.thankyou-icon {
+    width: 72px; height: 72px; border-radius: 20px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex; align-items: center; justify-content: center;
+    color: #fff;
+    box-shadow: 0 10px 26px color-mix(in srgb,var(--primary-color) 55%, transparent), 0 0 0 1px rgba(255,255,255,0.2) inset;
+    margin-bottom: 28px;
+    position: relative;
+}
+.thankyou-icon::after {
+    content: '';
+    position: absolute; inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(145deg, rgba(255,255,255,0.28), transparent 60%);
+    mix-blend-mode: overlay;
+}
+.thankyou-card h3 {
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: .5px;
+    margin: 0 0 12px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.thankyou-card p {
+    font-size: 1rem; line-height: 1.55; color: var(--text-secondary);
+    margin: 0 0 26px;
+}
+.thankyou-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.thankyou-btn {
+    flex: 1 1 auto;
+    padding: 14px 20px;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 14px;
+    font-size: .95rem;
+    font-weight: 600;
+    letter-spacing: .5px;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+    transition: all .35s cubic-bezier(.16,.72,.3,1);
+}
+.thankyou-btn.primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    box-shadow: 0 6px 20px color-mix(in srgb,var(--primary-color) 45%, transparent);
+}
+.thankyou-btn.primary:hover { transform: translateY(-3px); box-shadow: 0 12px 34px color-mix(in srgb,var(--primary-color) 55%, transparent); }
+.thankyou-btn.ghost {
+    background: rgba(255,255,255,0.07);
+    color: var(--text-color);
+}
+.thankyou-btn.ghost:hover { background: rgba(255,255,255,0.12); transform: translateY(-3px); }
+@media (max-width: 520px){
+    .thankyou-card { padding: 34px 26px 28px; border-radius: 24px; }
+    .thankyou-actions { flex-direction: column; }
+    .thankyou-btn { width: 100%; }
+}
+
 /* Balance between 768px and wide screens */
 @media (max-width: 1024px) {
     .contact .social-links { justify-content: flex-start; }

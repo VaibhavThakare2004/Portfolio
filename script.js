@@ -270,22 +270,65 @@ document.addEventListener('DOMContentLoaded', () => {
             observer.observe(el);
         });
 
-        // Form submission effect
-        document.querySelector('.submit-btn').addEventListener('click', function(e) {
-            e.preventDefault();
-            this.innerHTML = 'TRANSMITTING...';
-            this.style.background = 'linear-gradient(45deg, #8000ff, #00ffff)';
-            
-            setTimeout(() => {
-                this.innerHTML = 'TRANSMISSION COMPLETE';
-                this.style.background = 'linear-gradient(45deg, #00ff00, #00ffff)';
-                
-                setTimeout(() => {
-                    this.innerHTML = 'TRANSMIT TO MATRIX';
-                    this.style.background = 'linear-gradient(45deg, #00ffff, #ff0080)';
-                }, 2000);
-            }, 1500);
-        });
+        // Form submission visual effect + allow actual POST (no redirect via hidden iframe)
+        (function(){
+            const submitBtn = document.querySelector('.submit-btn');
+            const contactForm = document.querySelector('.contact-form-inner');
+            const hiddenIframe = document.getElementById('hidden_iframe');
+            const overlay = document.getElementById('thankyouOverlay');
+            const closeBtn = document.getElementById('thankyouCloseBtn');
+            const anotherBtn = document.getElementById('thankyouAnotherBtn');
+            if (!submitBtn || !contactForm || !hiddenIframe || !overlay) return;
+
+            let sending = false;
+            const resetFields = () => {
+                ['contactName','contactEmail','contactPhone','contactSubject','contactMessage'].forEach(id => { const el = document.getElementById(id); if (el) el.value=''; });
+                ['nameHint','emailHint','phoneHint','subjectHint','messageHint'].forEach(id => { const h = document.getElementById(id); if (h){ h.textContent=''; h.classList.remove('valid','invalid'); }});
+                const count = document.getElementById('messageCount'); if(count){ count.textContent='0 / 500'; }
+            };
+
+            contactForm.addEventListener('submit', function(){
+                if (sending) return; // prevent double click
+                sending = true;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = 'Sending...';
+                submitBtn.style.background = 'linear-gradient(45deg, var(--primary-color), var(--secondary-color))';
+                submitBtn.classList.add('submitting');
+            });
+
+            hiddenIframe.addEventListener('load', function(){
+                if (!sending) return; // ignore initial load
+                // Show overlay
+                overlay.classList.add('active');
+                overlay.setAttribute('aria-hidden','false');
+                // Focus first actionable button for accessibility
+                setTimeout(()=>{ closeBtn && closeBtn.focus(); }, 50);
+                // Reset button state (keep overlay visible until user closes)
+                submitBtn.innerHTML = 'Send Message';
+                submitBtn.disabled = false;
+                submitBtn.style.background = '';
+                submitBtn.classList.remove('submitting');
+                sending = false;
+                resetFields();
+            });
+
+            const hideOverlay = () => {
+                overlay.classList.remove('active');
+                overlay.setAttribute('aria-hidden','true');
+            };
+
+            closeBtn && closeBtn.addEventListener('click', hideOverlay);
+            anotherBtn && anotherBtn.addEventListener('click', () => {
+                hideOverlay();
+                const first = document.getElementById('contactName');
+                if (first) first.focus();
+            });
+
+            // Esc key to close
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && overlay.classList.contains('active')) hideOverlay();
+            });
+        })();
 
         // ===== TEXT ANIMATION WITH GSAP =====
         // Wait for GSAP and Lenis to load with retry mechanism
@@ -770,23 +813,7 @@ project6: {
             }, { threshold: 0.4 });
             io.observe(contactSection);
 
-            // Toast on submit (works alongside existing button animation)
-            const toast = document.getElementById('contactToast');
-            const btn = document.querySelector('#contact .submit-btn');
-            if (toast && btn) {
-                const showToast = (msg) => {
-                    toast.textContent = msg;
-                    toast.classList.add('show');
-                    toast.setAttribute('aria-hidden', 'false');
-                    setTimeout(() => {
-                        toast.classList.remove('show');
-                        toast.setAttribute('aria-hidden', 'true');
-                    }, 2600);
-                };
-                btn.addEventListener('click', () => {
-                    setTimeout(() => showToast("Message sent! I'll get back to you soon."), 1600);
-                });
-            }
+            // Toast is now handled after Google Form submission via hidden iframe load
 
             // Phone input validation/masking and call action
             const phoneInput = document.getElementById('contactPhone');
