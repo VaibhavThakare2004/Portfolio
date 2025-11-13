@@ -744,23 +744,7 @@ My focus is on building high-performance, accessible, and data-driven products t
                 <button type="submit" class="submit-btn">Send Message</button>
                 </form>
 
-                <!-- Thank You Overlay -->
-                <div class="thankyou-overlay" id="thankyouOverlay" role="dialog" aria-modal="true" aria-labelledby="thankyouTitle" aria-describedby="thankyouDesc" aria-hidden="true">
-                    <div class="thankyou-card">
-                        <div class="thankyou-icon" aria-hidden="true">
-                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M16 8l-5.5 8L8 13"/>
-                            </svg>
-                        </div>
-                        <h3 id="thankyouTitle">Thank you!</h3>
-                        <p id="thankyouDesc">Your message has been sent. I’ll get back to you soon.</p>
-                        <div class="thankyou-actions">
-                            <button type="button" class="thankyou-btn primary" id="thankyouCloseBtn">Close</button>
-                            <button type="button" class="thankyou-btn ghost" id="thankyouAnotherBtn">Send another</button>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
         <div class="contact-toast" id="contactToast" role="status" aria-hidden="true"></div>
@@ -792,22 +776,30 @@ My focus is on building high-performance, accessible, and data-driven products t
                 </div>
 
                 <!-- Quick Links -->
-                <div class="footer-section">
-                    <h3 class="footer-title">Quick Links</h3>
+                
+                <div class="footer-section" id="footer">
+                    <div class="footer-heading">
+                        <h3 class="footer-title">Quick Links</h3>
+                        <span class="footer-underline" aria-hidden="true"></span>
+                    </div>
                     <ul class="footer-nav">
+                        <li><a href="secret.html" class="secret-trigger" data-secret="tom">Tom</a></li>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#features">About</a></li>
                         <li><a href="#showcase">Projects</a></li>
                         <li><a href="#nonprofit">NGO Projects</a></li>
                         <li><a href="#timeline">Experience</a></li>
-                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
 
                 <!-- Projects -->
                 <div class="footer-section">
-                    <h3 class="footer-title">Featured Projects</h3>
+                    <div class="footer-heading">
+                        <h3 class="footer-title">Featured Projects</h3>
+                        <span class="footer-underline" aria-hidden="true"></span>
+                    </div>
                     <ul class="footer-nav">
+                        <li><a href="secret.html" class="secret-trigger" data-secret="jerry">Jerry</a></li>
                         <li><a href="#" data-project="project2">Confidence Analyser</a></li>
                         <li><a href="#" data-project="project3">Refrigerator Door Detection</a></li>
                         <li><a href="#" data-project="project4">Asset Ticketing System</a></li>
@@ -818,7 +810,10 @@ My focus is on building high-performance, accessible, and data-driven products t
 
                 <!-- Skills & Technologies -->
                 <div class="footer-section">
-                    <h3 class="footer-title">Technologies</h3>
+                    <div class="footer-heading">
+                        <h3 class="footer-title">Technologies</h3>
+                        <span class="footer-underline" aria-hidden="true"></span>
+                    </div>
                     <div class="footer-tags">
             
                         <span>C++</span>
@@ -846,11 +841,11 @@ My focus is on building high-performance, accessible, and data-driven products t
                 <div class="footer-divider"></div>
                 <div class="footer-bottom-content">
                     <p class="footer-copyright">
-                        &copy; 2025 Vaibhav Thakare. All rights reserved.
+                    &copy; 2025 Vaibhav Thakare. All rights reserved
                     </p>
                     <div class="footer-meta">
-                        <span>Built with ❤️ and ☕</span>
-                        <span class="footer-separator">|</span>
+                        <span></span>
+                        <span class="footer-separator"></span>
                         <span>Designed & Developed by Vaibhav Thakare</span>
                     </div>
                 </div>
@@ -913,6 +908,8 @@ My focus is on building high-performance, accessible, and data-driven products t
         </div>
     </div>
 
-<script src="script.js"></script>
+        <!-- Secret overlay removed: links navigate directly to secret.html -->
+
+    <script src="script.js"></script>
 </body>
 </html>

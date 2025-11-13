@@ -2871,24 +2871,20 @@ footer::before {
 .footer-section:nth-child(4) { animation-delay: 0.4s; }
 
 /* Footer Titles */
+.footer-heading { position: relative; margin-bottom: 16px; }
 .footer-title {
     color: rgba(255, 255, 255, 0.95);
     font-size: 1.2rem;
     font-weight: 600;
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 12px;
+    margin: 0 0 10px 0;
 }
-
-.footer-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
+.footer-underline {
+    display: block;
     width: 40px;
     height: 2px;
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     border-radius: 2px;
+    pointer-events: none;
 }
 
 /* Footer Description */
@@ -2931,7 +2927,7 @@ footer::before {
 .footer-nav {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 12px 0 0 0; /* space below heading avoids hitbox overlap */
 }
 
 .footer-nav li {

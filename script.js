@@ -331,6 +331,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         })();
 
+        // Secret links now navigate directly to the page; no JS needed
+
         // ===== TEXT ANIMATION WITH GSAP =====
         // Wait for GSAP and Lenis to load with retry mechanism
         function initializeSmoothScroll() {
