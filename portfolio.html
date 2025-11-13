@@ -748,6 +748,19 @@ My focus is on building high-performance, accessible, and data-driven products t
             </div>
         </div>
         <div class="contact-toast" id="contactToast" role="status" aria-hidden="true"></div>
+
+        <!-- Thank-you overlay shown after successful submit (restored) -->
+        <div class="thankyou-overlay" id="thankyouOverlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="thankyouTitle">
+            <div class="thankyou-card glass">
+                <div class="thankyou-icon" aria-hidden="true"></div>
+                <h3 id="thankyouTitle">Thanks! Your message was sent.</h3>
+                <p>I’ll get back to you shortly. In the meantime, feel free to explore more projects.</p>
+                <div class="thankyou-actions">
+                    <button type="button" class="thankyou-btn primary" id="thankyouCloseBtn">Close</button>
+                    <button type="button" class="thankyou-btn ghost" id="thankyouAnotherBtn">Send Another</button>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->

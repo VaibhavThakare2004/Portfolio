@@ -933,8 +933,17 @@ project6: {
                 const updateCount = () => {
                     const len = messageInput.value.length;
                     if (messageCount) messageCount.textContent = `${len} / ${maxLen}`;
-                    if (len < 10) { messageHint.textContent='Tell me a bit more about your project.'; messageHint.classList.add('invalid'); messageHint.classList.remove('valid'); }
-                    else { messageHint.textContent='Thanks! This helps me understand your needs.'; messageHint.classList.add('valid'); messageHint.classList.remove('invalid'); }
+                    if (messageHint) {
+                        // Show positive hint once the message is reasonably long; otherwise show nothing
+                        if (len >= 10) {
+                            messageHint.textContent = 'Thanks! This helps me understand your needs.';
+                            messageHint.classList.add('valid');
+                            messageHint.classList.remove('invalid');
+                        } else {
+                            messageHint.textContent = '';
+                            messageHint.classList.remove('valid','invalid');
+                        }
+                    }
                 };
                 messageInput.addEventListener('input', updateCount);
                 updateCount();
