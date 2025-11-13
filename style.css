@@ -3640,6 +3640,15 @@ body.modal-open {
     flex-direction: column;
 }
 
+/* Force readable text palette inside the dark modal regardless of theme */
+.project-modal .modal-content {
+    /* Override theme text variables to light variants so contrast is good
+       even when the active theme is designed for light backgrounds. */
+    --text-color: #E6EDF3;            /* light text */
+    --text-secondary: rgba(230,237,243,0.85);
+    --heading-color: #FFFFFF;         /* bright headings */
+}
+
 /* Scrollbar for modal content */
 .modal-content::-webkit-scrollbar {
     width: 14px;
@@ -3736,6 +3745,8 @@ body.modal-open {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    /* Slight glow to ensure contrast on dark glass */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.45);
 }
 
 .modal-tags {
@@ -3790,8 +3801,8 @@ body.modal-open {
     border-radius: 2px;
 }
 
-.modal-section p {
-    color: var(--text-secondary);
+.project-modal .modal-section p {
+    color: var(--text-secondary); /* now a brighter light tone inside modal */
     line-height: 1.8;
     font-size: 1.05rem;
 }
@@ -3801,7 +3812,7 @@ body.modal-open {
     padding: 0;
 }
 
-.modal-section li {
+.project-modal .modal-section li {
     color: var(--text-secondary);
     padding: 10px 0;
     padding-left: 30px;

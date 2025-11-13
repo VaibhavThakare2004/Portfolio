@@ -165,7 +165,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Active menu item highlighting
         function updateActiveMenuItem() {
             const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-links a, .mobile-nav a');
+            // Only top-level nav links (exclude dropdown items)
+            const navLinks = document.querySelectorAll('.nav-links > li > a, .mobile-nav > a, .mobile-nav .mobile-dropdown > .mobile-dropdown-toggle');
             
             let currentSection = '';
             const scrollPos = window.pageYOffset + 100;
