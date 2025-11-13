@@ -518,7 +518,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 role: "Full Stack Developer - Designed and developed the complete website from concept to deployment. Collaborated with the NGO team to understand their needs and translated them into functional features.",
                 challenges: "The main challenge was designing an intuitive platform that fosters trust while maintaining a seamless user experience. I implemented SSL encryption, secure authentication, and transparent system logs to strengthen reliability.",
                 liveLink: "https://www.kshitijfoundation.org/",
-                githubLink: "https://github.com/VaibhavThakare2004/NGO_Muktangan"
+                githubLink: "https://github.com/VaibhavThakare2004/ProjectNGO"
             },
             project2: {
     title: "AI-Powered Stress and Confidence Analyzer",
