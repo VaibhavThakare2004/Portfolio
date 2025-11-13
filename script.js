@@ -334,6 +334,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // ===== TEXT ANIMATION WITH GSAP =====
         // Wait for GSAP and Lenis to load with retry mechanism
         function initializeSmoothScroll() {
+            // Prevent duplicate initialization in case of delayed CDN loads
+            if (window.__lenisInitialized) return;
             // Check if libraries are loaded
             if (typeof gsap === 'undefined' || typeof Lenis === 'undefined') {
                 console.warn('GSAP or Lenis not loaded yet, retrying...');
@@ -357,13 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Make lenis available globally for debugging
             window.lenis = lenis;
-
-            function raf(time) {
-                lenis.raf(time);
-                requestAnimationFrame(raf);
-            }
-
-            requestAnimationFrame(raf);
+            window.__lenisInitialized = true;
 
             // Register GSAP plugins
             gsap.registerPlugin(ScrollTrigger);
@@ -372,9 +368,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Sync ScrollTrigger with Lenis
             lenis.on('scroll', ScrollTrigger.update);
 
-            gsap.ticker.add((time) => {
-                lenis.raf(time * 1000);
-            });
+            // Drive Lenis using GSAP ticker (single driver to avoid jitter)
+            gsap.ticker.add((time) => { lenis.raf(time * 1000); });
 
             gsap.ticker.lagSmoothing(0);
 

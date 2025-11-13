@@ -108,7 +108,8 @@ body[data-theme="calm-friendly"] {
 }
 
 html {
-    scroll-behavior: smooth;
+    /* Let Lenis/JS handle smoothness to avoid conflicts */
+    scroll-behavior: auto;
 }
 
  body {
